@@ -1,0 +1,80 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+ {
+  "sections": {
+    "page_banner": {
+      "type": "page-banner",
+      "settings": {
+        "color_title": "#000000",
+        "color_link": "#044d79",
+        "color_subtitle": "#cccccc",
+        "background_color": "#FFFFFF",
+        "subtile": "<p>Slash Sales begins in April. Get up to 80% Discount on all products...</p>",
+        "padding_vertical": 32,
+        "padding_horizontal": 32,
+        "padding_vertical_mb": 16,
+        "padding_horizontal_mb": 16,
+        "margin_top": 16,
+        "margin_bottom": 16,
+        "margin_top_mb": 16,
+        "margin_bottom_mb": 16
+      }
+    },
+    "template": {
+      "type": "template-help-center",
+      "blocks": {
+        "faq_1": {
+          "type": "faq",
+          "settings": {
+            "question": "question 1",
+            "answer": "<p>answer 1</p>"
+          }
+        },
+        "faq_2": {
+          "type": "faq",
+          "settings": {
+            "question": "question 2",
+            "answer": "<p>answer 2</p>"
+          }
+        },
+        "faq_3": {
+          "type": "faq",
+          "settings": {
+            "question": "question 3",
+            "answer": "<p>answer 3</p>"
+          }
+        },
+        "faq_4": {
+          "type": "faq",
+          "settings": {
+            "question": "question 4",
+            "answer": "<p>answer 4</p>"
+          }
+        }
+      },
+      "block_order": [
+        "faq_1",
+        "faq_2",
+        "faq_3",
+        "faq_4"
+      ],
+      "settings": {
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "padding_top_mb": 20,
+        "padding_bottom_mb": 20
+      }
+    }
+  },
+  "order": [
+    "page_banner",
+    "template"
+  ]
+}
