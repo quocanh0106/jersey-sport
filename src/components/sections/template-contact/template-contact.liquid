@@ -57,7 +57,7 @@
                     {% render 'icon-success-message', class: "block w-16 h-16 lg:w-[88px] lg:h-[88px] mb-4 lg:mb-5" %}
                     <div class="text-h4 lg:text-h3 text-center font-semibold font-heading mb-3 max-w-[402px] mx-auto">{{ 'templates.contact.form.post_success_heading' | t }}</div>
                     <p class="text-sm leading-5 lg:text-base lg:leading-6 text-center mb-4 lg:mb-6 max-w-[438px] mx-auto">{{ 'templates.contact.form.post_success' | t }}</p>
-                    <button type="button" class="btn btn-2 !uppercase py-3.5 max-w-[360px] close w-full mx-auto" >{{ 'templates.contact.form.continue_submit' | t }}</button>
+                    <button type="button" class="btn-primary btn-secondary !uppercase py-3.5 max-w-[360px] close w-full mx-auto" >{{ 'templates.contact.form.continue_submit' | t }}</button>
                   </div>
                 </modal-dialog>
               {%- endif -%}
@@ -91,7 +91,7 @@
                   data-name="body"
                   name="contact[body]"></textarea>
               </div>
-              <button class="btn-2 px-6 lg:px-12 flex items-center justify-center h-10.5 lg:h-12.5 !font-heading !font-bold !text-base !leading-none lg:!text-base lg:!leading-none !uppercase w-full lg:w-fit" type="submit" value="{{ 'templates.contact.form.send' | t }}">
+              <button class="btn-secondary px-6 lg:px-12 flex items-center justify-center h-10.5 lg:h-12.5 !font-heading !font-bold !text-base !leading-none lg:!text-base lg:!leading-none !uppercase w-full lg:w-fit" type="submit" value="{{ 'templates.contact.form.send' | t }}">
                 Submit
               </button>
             {%- endform -%}

@@ -25,13 +25,6 @@ body.overflow-hidden, body.\!overflow-hidden, body.disable-scroll {
   @apply mx-auto lg:px-container-desktop max-w-container;
 }
 
-.page-width-2 {
-  @apply mx-auto px-container-mobile md:px-container-tablet lg:px-container-desktop max-w-container-2;
-}
-
-.page-width-desktop-2 {
-  @apply mx-auto lg:px-container-desktop max-w-container-2;
-}
 
 /***** Heading ******/
 
@@ -70,19 +63,15 @@ a {
 /***** Button ******/
 
 .btn {
-  @apply flex items-center justify-center border border-primary text-background bg-primary hover:bg-background hover:text-primary transition-all rounded-lg h-13.5 px-3 text-sm uppercase no-underline;
+  @apply flex items-center justify-center text-sm lg:text-base rounded-[9999px] no-underline;
 }
 
-.btn-2 {
-  @apply flex items-center justify-center border border-secondary text-background bg-secondary hover:bg-background hover:text-secondary transition-all rounded-lg h-13.5 px-3 text-sm uppercase no-underline;
+.btn-primary {
+  @apply flex items-center justify-center border border-primary text-background bg-primary text-sm lg:text-base rounded-[9999px] hover:bg-[#5d6470] no-underline;
 }
 
-.btn-outline {
-  @apply flex items-center justify-center border border-primary text-primary bg-background hover:text-background hover:bg-primary transition-all rounded-lg h-13.5 px-3 text-sm uppercase no-underline;
-}
-
-.btn-2-outline {
-  @apply flex items-center justify-center border border-secondary text-secondary bg-background hover:text-background hover:bg-secondary transition-all rounded-lg h-13.5 px-3 text-sm uppercase no-underline;
+.btn-secondary {
+  @apply flex items-center justify-center border border-primary text-primary bg-background text-sm lg:text-base rounded-[9999px] hover:bg-[#e7ecf3] no-underline;
 }
 
 /***** End button ******/
@@ -347,15 +336,15 @@ slider-component .slider-wrapper .slider-slide {
 }
 
 slider-component .slider-dots {
-  @apply flex gap-2.5 justify-center;
+  @apply flex gap-3 justify-center;
 }
 
 slider-component .slider-dots .slider-dot {
-  @apply !block relative w-2.5 h-2.5 cursor-pointer rounded-full bg-gray-300 transition-all;
+  @apply !block relative w-4 h-4 cursor-pointer rounded-full bg-[#e7ecf3] border border-[#1d232e] transition-all;
 }
 
 slider-component .slider-dots .slider-dot.active {
-  @apply bg-primary cursor-auto;
+  @apply  bg-[#1d232e] border border-[#e7ecf3] cursor-auto;
 }
 
 slider-component[visibility="true"] .slider-slide {

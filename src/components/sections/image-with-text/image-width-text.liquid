@@ -27,7 +27,7 @@
   }
 {%- endstyle -%}
 <div data-section-id="{{ section.id }}">
-  <div class="page-width-2">
+  <div class="page-width">
     {% if section.settings.heading %}
       <{{ section.settings.heading_tag }} class="text-[22px] lg:text-2xl mb-4 capitalize text-center" style="color: {{ section.settings.colors_heading }}">
         {{ section.settings.heading }}
@@ -49,7 +49,7 @@
                   alt="{{ block.settings.image | split: "/" | last | replace: "-", " " | split: "." | first }}"
                   {% endif %}
                   loading="lazy"
-                  class="block mb-2 lg:mb-3{% if block.settings.img_type == 'circle' %} rounded-full overflow-hidden{% endif %} {% if block.settings.text_align_item == 'text-center' %} mx-auto{% elsif block.settings.text_align_item == 'text-left' %} mr-auto{% else %} ml-auto{% endif %} bg-image-placeholder bg-no-repeat bg-cover bg-center text-transparent"
+                  class="block mb-2 lg:mb-3{% if block.settings.img_type == 'circle' %} rounded-full overflow-hidden{% endif %} {% if block.settings.text_align_item == 'text-center' %} mx-auto{% elsif block.settings.text_align_item == 'text-left' %} mr-auto{% else %} ml-auto{% endif %} "
                   width="{{ block.settings.image.width }}"
                   height="{{ block.settings.image.height }}" />
               {% else %}

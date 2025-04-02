@@ -29,7 +29,7 @@
           src="{{ article.image.src | image_url: width: 533 }}"
           sizes="(min-width: {{ 1440 }}px) {{ 1440 | minus: 100 | divided_by: 2 }}px, (min-width: 750px) calc((100vw - 130px) / 2), calc((100vw - 50px) / 2)"
           {% if article.image.alt != blank %}alt="{{ article.image.alt | escape }}"{% else %}alt="{{ article.image.src | split: "/" | last | replace: "-", " " | split: "." | first }}"{% endif %}
-          class="w-full h-full object-cover group-hover:scale-105 transition-all bg-image-placeholder bg-no-repeat bg-cover bg-center text-transparent"
+          class="w-full h-full object-cover group-hover:scale-105 transition-all "
           {% unless lazy_load == false %}loading="lazy"{% endunless %} width="657" height="{{ 657 | divided_by: article.image.aspect_ratio }}">
         {% else %}
           {{ 'collection-6' | placeholder_svg_tag: '' }}

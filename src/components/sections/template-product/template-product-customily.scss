@@ -1,25 +1,17 @@
-.btn {
-  @apply flex items-center justify-center border border-primary text-background bg-primary hover:bg-background hover:text-primary transition-all rounded-lg h-13.5 px-3 text-sm uppercase no-underline;
+.btn-primary {
+  @apply flex items-center justify-center border border-primary text-background bg-primary text-sm lg:text-base rounded-[9999px] hover:bg-[#5d6470] no-underline;
 }
 
-.btn-2 {
-  @apply flex items-center justify-center border border-secondary text-background bg-secondary hover:bg-background hover:text-secondary transition-all rounded-lg h-13.5 px-3 text-sm uppercase no-underline;
-}
-
-.btn-outline {
-  @apply flex items-center justify-center border border-primary text-primary bg-background hover:text-background hover:bg-primary transition-all rounded-lg h-13.5 px-3 text-sm uppercase no-underline;
-}
-
-.btn-2-outline {
-  @apply flex items-center justify-center border border-secondary text-secondary bg-background hover:text-background hover:bg-secondary transition-all rounded-lg h-13.5 px-3 text-sm uppercase no-underline;
+.btn-secondary {
+  @apply flex items-center justify-center border border-primary text-primary bg-background text-sm lg:text-base rounded-[9999px] hover:bg-[#e7ecf3] no-underline;
 }
 
 .btn-error {
-  @apply hover:text-primary hover:bg-error text-error bg-primary border-error;
+  @apply flex items-center justify-center border border-error text-background bg-error text-sm lg:text-base rounded-[9999px] hover:bg-error-opacity-70 no-underline;
 }
 
-.btn.active {
-  @apply btn-2;
+.btn-primary.active {
+  @apply btn-secondary;
 }
 
 #customily-preview-button,

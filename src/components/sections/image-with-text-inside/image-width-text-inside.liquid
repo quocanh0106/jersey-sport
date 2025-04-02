@@ -21,7 +21,7 @@
   }
 {%- endstyle -%}
 <div data-section-id="{{ section.id }}">
-  <div class="relative page-width-2" id="{{ section.id }}">
+  <div class="relative page-width" id="{{ section.id }}">
     {% if section.settings.heading != blank or section.settings.url != blank %}
       <div class="flex items-center justify-between mb-8 lg:mb-12">
         <h2 class="text-h5 font-semibold lg:text-h2 text-primary">{{ section.settings.heading | escape }}</h2>
@@ -64,7 +64,7 @@
                       alt="{{ block.settings.image | split: "/" | last | replace: "-", " " | split: "." | first }}"
                       {% endif %}
                       loading="lazy"
-                      class="block w-full min-h-[132px] object-cover object-center bg-image-placeholder bg-no-repeat bg-cover bg-center text-transparent {% if section.settings.image_ratio == 'square' %}aspect-1{% endif %}"
+                      class="block w-full min-h-[132px] object-cover object-center  {% if section.settings.image_ratio == 'square' %}aspect-1{% endif %}"
                       width="{{ block.settings.image.width }}"
                       height="{{ block.settings.image.height }}" />
                   {% else %}
@@ -89,7 +89,7 @@
                       alt="{{ block.settings.image | split: "/" | last | replace: "-", " " | split: "." | first }}"
                       {% endif %}
                       loading="lazy"
-                      class="{% if block.settings.image_mb %}hidden lg:block {% else %}block {% endif %} w-full object-cover object-center bg-image-placeholder bg-no-repeat bg-cover bg-center text-transparent {% if section.settings.image_ratio == 'square' %}aspect-1{% endif %}"
+                      class="{% if block.settings.image_mb %}hidden lg:block {% else %}block {% endif %} w-full object-cover object-center  {% if section.settings.image_ratio == 'square' %}aspect-1{% endif %}"
                       width="{{ block.settings.image.width }}"
                       height="{{ block.settings.image.height }}" />
                   {% endif %}
@@ -104,7 +104,7 @@
                       alt="{{ block.settings.image_mb | split: "/" | last | replace: "-", " " | split: "." | first }}"
                       {% endif %}
                       loading="lazy"
-                      class="{% if block.settings.image %}block lg:hidden {% else %}block {% endif %}w-full object-cover object-center bg-image-placeholder bg-no-repeat bg-cover bg-center text-transparent {% if section.settings.image_ratio == 'square' %}aspect-1{% endif %}"
+                      class="{% if block.settings.image %}block lg:hidden {% else %}block {% endif %}w-full object-cover object-center  {% if section.settings.image_ratio == 'square' %}aspect-1{% endif %}"
                       width="{{ block.settings.image_mb.width }}"
                       height="{{ block.settings.image_mb.height }}" />
                   {% endif %}
@@ -115,7 +115,7 @@
                       </h2>
                     {% endif %}
                     {% if block.settings.button_text %}
-                      <a href="{{ block.settings.url }}" class="btn btn-2 !font-heading !font-bold !text-sm !leading-4 py-2.5 px-6 lg:py-3.5" title="{{ block.settings.title | strip_html }}"{% if link.url contains shop.domain %} rel="nofollow"{% endif %}>
+                      <a href="{{ block.settings.url }}" class="btn-primary btn-secondary !font-heading !font-bold !text-sm !leading-4 py-2.5 px-6 lg:py-3.5" title="{{ block.settings.title | strip_html }}"{% if link.url contains shop.domain %} rel="nofollow"{% endif %}>
                         {{ block.settings.button_text }}
                       </a>
                     {% endif %}

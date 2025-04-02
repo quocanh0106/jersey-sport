@@ -33,7 +33,7 @@
                                 src='{{ item.properties['_customily-thumb'] }}'
                                 data-placeholder="{{ placeholderImage }}" 
                                 data-thumb-src="{{  item.properties['_customily-thumb'] }}" 
-                                class="customily-item-image w-37.5 h-37.5 md:w-40 md:h-40 block object-cover leading-none rounded !max-w-full !max-h-full bg-image-placeholder bg-no-repeat bg-cover bg-center text-transparent"
+                                class="customily-item-image w-37.5 h-37.5 md:w-40 md:h-40 block object-cover leading-none rounded !max-w-full !max-h-full "
                                 width='160'
                                 height='160'
                                 loading='lazy'
@@ -50,7 +50,7 @@
                               id='preview-image-{{ item.index | plus: 1 }}'
                             >
                               <div class='group text-center rounded-xl shadow-popup max-w-[calc(100vw_-_32px)] max-h-[calc(100vh_-_32px)] w-[700px] lg:overflow-auto bg-background absolute top-1/2 left-1/2 z-30 -translate-x-1/2 -translate-y-1/2'>
-                                <img src="{{ item.properties['_customily-preview'] }}" data-placeholder="{{ placeholderImage }}" data-thumb-src="{{ item.properties['_customily-preview'] }}" class="customily-item-image w-full h-full block object-cover leading-none !max-w-full !max-h-full bg-image-placeholder bg-no-repeat bg-cover bg-center text-transparent" style="--image-placeholder: url({{ placeholderImage }});" width="765" height="765" loading="lazy" alt="{{ item.title | escape }}" />
+                                <img src="{{ item.properties['_customily-preview'] }}" data-placeholder="{{ placeholderImage }}" data-thumb-src="{{ item.properties['_customily-preview'] }}" class="customily-item-image w-full h-full block object-cover leading-none !max-w-full !max-h-full " style="--image-placeholder: url({{ placeholderImage }});" width="765" height="765" loading="lazy" alt="{{ item.title | escape }}" />
 
                                 <span class="text-primary cursor-pointer w-10 h-10 flex items-center justify-center rounded-full absolute top-3 right-3 lg:top-7 lg:right-7 lg:left-auto translate-y-0 translate-x-0 close">
                                   {% render 'icon-close', class: 'w-6 h-6' %}
@@ -66,7 +66,7 @@
                           >
                             <img
                               src='{{ item.image | image_url: width: 160 }}'
-                              class=' w-37.5 h-37.5 md:w-40 md:h-40 block object-cover leading-none bg-image-placeholder bg-no-repeat bg-cover bg-center text-transparent'
+                              class=' w-37.5 h-37.5 md:w-40 md:h-40 block object-cover leading-none '
                               alt='{{ item.image.alt | escape }}'
                               width='160'
                               height='{{ 160 | divided_by: item.image.aspect_ratio | ceil }}'
@@ -82,7 +82,7 @@
                               <div class='group text-center rounded-xl shadow-popup max-w-[calc(100vw_-_32px)] max-h-[calc(100vh_-_32px)] w-[700px] lg:overflow-auto bg-background absolute top-1/2 left-1/2 z-30 -translate-x-1/2 -translate-y-1/2'>
                                 <img
                                   src='{{ item.image | image_url: width: item.image.width }}'
-                                  class='w-full h-full block object-cover leading-none !max-w-full !max-h-full bg-image-placeholder bg-no-repeat bg-cover bg-center text-transparent'
+                                  class='w-full h-full block object-cover leading-none !max-w-full !max-h-full '
                                   width='{{ item.image.width }}'
                                   height='{{ item.image.height }}'
                                   loading='lazy'
@@ -144,7 +144,7 @@
                               </p>
                               <img
                                 src='{% if item.properties['_customily-preview'] %}{{ item.properties['_customily-preview'] }}{% else %}{{ item.image | image_url: width: 450 }}{% endif %}'
-                                class='w-[450px] h-[450px] block object-cover leading-none !max-w-full !max-h-full rounded mx-auto mb-3 bg-image-placeholder bg-no-repeat bg-cover bg-center text-transparent'
+                                class='w-[450px] h-[450px] block object-cover leading-none !max-w-full !max-h-full rounded mx-auto mb-3 '
                                 width='450'
                                 height='450'
                                 loading='lazy'
@@ -152,7 +152,7 @@
                               >
                 
                             <div class='grid grid-cols-2 justify-center gap-3'>
-                              <span class='btn btn-2 w-full font-heading font-bold text-sm leading-none !uppercase cursor-pointer !py-2 px-4 border close'>
+                              <span class='btn-primary btn-secondary w-full font-heading font-bold text-sm leading-none !uppercase cursor-pointer !py-2 px-4 border close'>
                                 {{ 'sections.cart.cancel' | t }}
                               </span>
                               <cart-remove-button
@@ -162,7 +162,7 @@
                               >
                                 <a
                                   href='{{ item.url_to_remove }}'
-                                  class='btn border w-full font-heading font-bold text-sm leading-none !uppercase !py-2 px-4 close'
+                                  class='btn-primary border w-full font-heading font-bold text-sm leading-none !uppercase !py-2 px-4 close'
                                 >
                                   {{ 'sections.cart.remove' | t }}
                                 </a>

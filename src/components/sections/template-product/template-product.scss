@@ -13,19 +13,19 @@ input:checked + label.color {
 }
 /***** Button ******/
 
-.btn {
+.btn-primary {
   @apply flex items-center justify-center border border-primary text-background bg-primary hover:bg-background hover:text-primary transition-all rounded-lg h-13.5 px-3 text-sm uppercase no-underline;
 }
 
-.btn-2 {
+.btn-secondary {
   @apply flex items-center justify-center border border-secondary text-background bg-secondary hover:bg-background hover:text-secondary transition-all rounded-lg h-13.5 px-3 text-sm uppercase no-underline;
 }
 
-.btn-outline {
+.btn-secondary {
   @apply flex items-center justify-center border border-primary text-primary bg-background hover:text-background hover:bg-primary transition-all rounded-lg h-13.5 px-3 text-sm uppercase no-underline;
 }
 
-.btn-2-outline {
+.btn-secondary-outline {
   @apply flex items-center justify-center border border-secondary text-secondary bg-background hover:text-background hover:bg-secondary transition-all rounded-lg h-13.5 px-3 text-sm uppercase no-underline;
 }
 
@@ -34,7 +34,7 @@ input:checked + label.color {
 }
 
 .btn.active {
-  @apply btn-2;
+  @apply btn-secondary;
 }
 
 /***** End button ******/
@@ -44,7 +44,7 @@ input:checked + label.color {
   @apply !w-full !h-13.5 !relative !capitalize !border !text-h5 !font-heading !font-semibold !whitespace-nowrap !inline-block !tracking-[0] !transition-colors !cursor-pointer !shadow-none !underline-offset-[0.3rem] !no-underline !rounded-[20px];
 }
 
-.product-form__submit.hidden-cart-btn {
+.product-form__submit.hidden-cart-btn-primary {
   @apply !hidden;
 }
 

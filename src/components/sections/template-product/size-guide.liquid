@@ -47,7 +47,7 @@
               <img src="{{ block.settings.image | image_url: width: block.settings.image.width }}"
                   sizes="{{ block.settings.image.width }}px"
                   alt="{{ block.settings.image | split: "/" | last | replace: "-", " " | split: "." | first }}"
-                  class="block mx-auto max-w-[600px] mb-2 w-full rounded-lg overflow-hidden bg-image-placeholder bg-no-repeat bg-cover bg-center text-transparent"
+                  class="block mx-auto max-w-[600px] mb-2 w-full rounded-lg overflow-hidden "
                   loading="lazy"
                   width="{{ block.settings.image.width }}"
                   height="{{ block.settings.image.height }}">

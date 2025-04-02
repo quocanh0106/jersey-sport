@@ -90,7 +90,7 @@
         </div>
       </div>
       <div class="max-w-full lg:max-w-1/4 mx-auto mt-5 lg:mt-0 lg:mr-0 flex items-center">
-        <span-link href="{% if settings.country == 'FR' %}{{ pages['avis'].url | prepend: request.origin  }}{% elsif settings.country == 'DE' %}{{ pages['bewertungen'].url | prepend: request.origin  }}{% else %}{{ pages['reviews'].url | prepend: request.origin  }}{% endif %}" target="_blank" class="btn btn-2 py-3 px-6 text-sm !uppercase !whitespace-normal text-center overflow-hidden">
+        <span-link href="{% if settings.country == 'FR' %}{{ pages['avis'].url | prepend: request.origin  }}{% elsif settings.country == 'DE' %}{{ pages['bewertungen'].url | prepend: request.origin  }}{% else %}{{ pages['reviews'].url | prepend: request.origin  }}{% endif %}" target="_blank" class="btn-primary btn-secondary py-3 px-6 text-sm !uppercase !whitespace-normal text-center overflow-hidden">
           {{ 'sections.collection_template.write_review' | t }}
         </span-link>
       </div>

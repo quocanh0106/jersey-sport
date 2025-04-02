@@ -154,7 +154,7 @@
                       sizes="(min-width: {{ 1440 }}px) {{ 1440 | minus: 130 | divided_by: 4 }}px, (min-width: 990px) calc((100vw - 130px) / 4), (min-width: 750px) calc((100vw - 120px) / 3), calc((100vw - 35px) / 2)"
                       alt="{{ media.image_desktop | split: "/" | last | replace: "-", " " | split: "." | first }}"
                       loading="lazy"
-                      class="block group-hover:scale-105 transition-all duration-300 w-full h-full object-cover object-top bg-image-placeholder bg-no-repeat bg-cover bg-center text-transparent"
+                      class="block group-hover:scale-105 transition-all duration-300 w-full h-full object-cover object-top "
                       width="{{ media.width }}"
                       height="{{ 512 | divided_by: media.image_desktop.aspect_ratio }}"
                   >
@@ -176,7 +176,7 @@
               {% render 'icon-predictive-search', class: 'w-20 h-20 lg:w-32 lg:h-32 mb-3 mx-auto block text-center text-primary' %}
               <span class="block text-center text-primary text-h5 lg:text-h4 mb-1 font-heading">{{ 'products.facets.empty_heading' | t }}</span>
               <span class="block text-center text-primary text-sm leading-5 lg:text-base lg:leading-6 font-normal max-w-[263px] lg:max-w-[386px] mx-auto mb-4 lg:mb-6">{{ 'products.facets.empty_description' | t }}</span>
-              <a href="{{ collection.url }}" title="{{ 'products.facets.clear_all' | t }}"  class="block mx-auto w-fit btn btn-2 px-6 lg:px-8 py-3.5 text-sm leading-none uppercase lg:text-base lg:leading-none !font-heading !font-bold">
+              <a href="{{ collection.url }}" title="{{ 'products.facets.clear_all' | t }}"  class="block mx-auto w-fit btn-primary btn-secondary px-6 lg:px-8 py-3.5 text-sm leading-none uppercase lg:text-base lg:leading-none !font-heading !font-bold">
                 {{ 'products.facets.clear_all' | t }}
               </a>
             </div>

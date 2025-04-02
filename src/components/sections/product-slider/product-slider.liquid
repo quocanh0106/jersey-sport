@@ -28,16 +28,11 @@
   {%- endstyle -%}
 
   <div data-section-id="{{ section.id }}" {% if section.settings.secondary != blank and section.settings.secondary != 'transparent' %} style="--color-secondary: {{ section.settings.secondary }}"{% endif %}>
-    <div class="block relative overflow-hidden page-width-2">
-      <div class="flex items-center justify-between gap-2 mb-5">
-        {% if section.settings.heading %}
-          <h2 class="text-base lg:text-lg font-semibold text-center text-primary mb-0">{{ section.settings.heading | escape }}</h2>
-        {% endif %}
-        <a href="{{ section.settings.collection.url }}" class="text-base leading-none flex items-center gap-1.5 !text-secondary no-underline hover:underline">
-          <span>{{ section.settings.button_text }}</span>
-          {% render 'icon-right', class: 'w-4 h-4' %}
-        </a>
-      </div>
+    <div class="block relative overflow-hidden page-width">
+      {% if section.settings.heading %}
+        <h2 class="font-sans text-xl font-medium tracking-tighter sm:text-2xl mb-8">{{ section.settings.heading | escape }}</h2>
+      {% endif %}
+
       <slider-component>
         <button
           type="button"
@@ -102,7 +97,7 @@
         "label": "Items per row in desktop",
         "min": 1,
         "max": 9,
-        "default": 6,
+        "default": 5,
         "step": 1
       },
       {
@@ -130,7 +125,7 @@
         "min": 1,
         "max": 20,
         "step": 1,
-        "default": 12
+        "default": 5
       },
       {
         "type": "header",

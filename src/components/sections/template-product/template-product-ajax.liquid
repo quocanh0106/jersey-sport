@@ -162,7 +162,7 @@
           <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}" disabled>
           <div class="block mt-6 mb-4 relative">
             <div class="product-form__buttons">
-              <button type="submit" name="add" class="product-form__submit button button--full-width btn"{% if product.selected_or_first_available_variant.available == false %} disabled{% endif %}>
+              <button type="submit" name="add" class="product-form__submit button button--full-width btn-primary"{% if product.selected_or_first_available_variant.available == false %} disabled{% endif %}>
                 <span>
                   {%- if product.selected_or_first_available_variant.available -%}
                     {{ 'products.product.save_edit' | t }}

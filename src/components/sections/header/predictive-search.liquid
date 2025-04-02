@@ -46,7 +46,7 @@
                   </li>
                 {%- endfor -%}
               </ul>
-              <a href="{{ routes.search_url | append: '?q=' }}{{ predictive_search.terms | url_endcode }}" class="hidden btn-2-outline capitalize w-full !text-base !rounded-lg !py-1 mt-5 mx-auto">
+              <a href="{{ routes.search_url | append: '?q=' }}{{ predictive_search.terms | url_endcode }}" class="hidden btn-secondary-outline capitalize w-full !text-base !rounded-lg !py-1 mt-5 mx-auto">
                 View All Items
               </a>
             {%- endif -%}

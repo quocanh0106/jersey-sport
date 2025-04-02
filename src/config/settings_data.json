@@ -9,23 +9,31 @@
  */
  {
   "current": {
-    "logo": "shopify://shop_images/Logo_Wander_Prints.png",
-    "logo_width": 184,
-    "logo_mb": "shopify://shop_images/Logo_Wander_Prints.png",
+    "logo": "shopify://shop_images/logo.svg",
+    "logo_width": 156,
+    "logo_mb": "shopify://shop_images/logo.svg",
     "logo_width_mb": 116,
-    "type_heading_font_medium": "poppins_n5",
-    "type_body_font": "poppins_n4",
-    "type_body_font_medium": "poppins_n5",
+    "type_heading_font_light": "inter_n3",
+    "type_heading_font": "inter_n4",
+    "type_heading_font_medium": "inter_n5",
+    "type_heading_font_semibold": "inter_n6",
+    "type_heading_font_bold": "inter_n7",
+    "type_body_font_light": "inter_n3",
+    "type_body_font": "inter_n4",
+    "type_body_font_medium": "inter_n5",
+    "type_body_font_semibold": "inter_n6",
+    "type_body_font_bold": "inter_n7",
     "color_primary": "#000000",
     "color_secondary": "#044d79",
     "color_secondary_dark": "#10263e",
     "color_special": "#e95d2c",
     "color_body_text": "#000000",
-    "color_subtext": "#626262",
-    "color_border": "#cccccc",
-    "container": 1280,
-    "padding_desktop": 16,
-    "padding_tablet": 16,
+    "color_subtext": "#6B7280",
+    "color_border": "#F3F3F3",
+    "container": 1600,
+    "container_2": 1600,
+    "padding_desktop": 32,
+    "padding_tablet": 24,
     "padding_mobile": 16,
     "sections": {
       "header": {
@@ -154,7 +162,7 @@
               "col_span_tablet": 1,
               "col_span_mobile": 1,
               "heading": "Informations",
-              "menu": "customer-services"
+              "menu": ""
             }
           },
           "link_list_G4UJ3k": {
@@ -164,7 +172,7 @@
               "col_span_tablet": 1,
               "col_span_mobile": 1,
               "heading": "Policies",
-              "menu": "customer-services"
+              "menu": ""
             }
           },
           "link_list_M4fCNc": {
@@ -174,7 +182,7 @@
               "col_span_tablet": 1,
               "col_span_mobile": 1,
               "heading": "Help",
-              "menu": "topbar"
+              "menu": ""
             }
           }
         },
@@ -185,13 +193,13 @@
           "link_list_M4fCNc"
         ],
         "settings": {
-          "background": "#FAFAFA",
+          "background": "#fafafa",
           "heading_color": "#000000",
           "text_color": "#000000",
           "text_hover_color": "#000000",
           "social_color": "#5d6470",
           "social_hover_color": "#000000",
-          "border_color": "#FAFAFA",
+          "border_color": "#fafafa",
           "col_per_row_desktop": 5,
           "col_per_row_tablet": 2,
           "col_per_row_mobile": 1,
@@ -201,19 +209,6 @@
       },
       "announcement-bar": {
         "type": "announcement-bar",
-        "blocks": {
-          "announcement-bar-0": {
-            "type": "announcement",
-            "settings": {
-              "text": "<p>Save 10% for order 2+ with code:<strong> WP2</strong></p>",
-              "link": "",
-              "open_new_window": false
-            }
-          }
-        },
-        "block_order": [
-          "announcement-bar-0"
-        ],
         "settings": {
           "background_color": "#044d79",
           "text_color": "#ffffff"
@@ -224,8 +219,7 @@
         "settings": {
           "background_section": "#f7f7f7",
           "background_section_mb": "#f7f7f7",
-          "full_width": true,
-          "show_only_mb": false,
+          "action_url": "",
           "heading": "UNLOCK YOUR 10% OFF!",
           "color_heading": "#044d79",
           "color_heading_mb": "#044d79",
@@ -237,16 +231,17 @@
           "padding_top_mb": 0,
           "padding_bottom_mb": 0
         }
+      },
+      "top-header": {
+        "type": "top-header",
+        "settings": {
+          "background": "#fafafa",
+          "color": "#1d232e",
+          "top_menu": "top-header"
+        }
       }
     },
-    "content_for_index": [],
-    "blocks": {
-      "14060646107696862457": {
-        "type": "shopify://apps/judge-me-reviews/blocks/judgeme_core/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
-        "disabled": false,
-        "settings": {}
-      }
-    }
+    "content_for_index": []
   },
   "presets": {
     "Default": {}

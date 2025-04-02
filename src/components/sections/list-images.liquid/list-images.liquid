@@ -14,7 +14,7 @@
 {%- endstyle -%}
 
 <div data-section-id="{{ section.id }}">
-  <div class="page-width-2">
+  <div class="page-width">
     {% if section.settings.heading != blank %}
       <h2 class="{{ section.settings.text_align_title }} text-lg font-semibold lg:text-2xl mb-6">{{ section.settings.heading }}</h2>
     {% endif %}
@@ -40,7 +40,7 @@
                 alt="{{ block.settings.img_logo | split: "/" | last | replace: "-", " " | split: "." | first }}"
                 {% endif %}
                 loading="lazy"
-                class="block {{ block.settings.alignment }} bg-image-placeholder bg-no-repeat bg-cover bg-center text-transparent"
+                class="block {{ block.settings.alignment }} "
                 width="{{ block.settings.img_logo.width }}"
                 height="{{ block.settings.img_logo.height }}" />
             </div>

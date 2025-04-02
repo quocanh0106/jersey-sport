@@ -1,23 +1,9 @@
-{% if heading == blank %}
-  {% assign heading = 'h3' %}
-{% endif %}
-{% unless lazy_load %}
-  {% assign lazy_load = 'lazy' %}
-{% endunless %}
-
 {% assign media = product.featured_media %}
-{% if media_position != blank %}
-  {% assign point = media_position | minus: 1 %}
-  {% assign secondPoint = media_position | plus: 0 %}
-  {% if product.media[point] != blank %}
-    {% assign media = product.media[point] %}
-  {% endif %}
-{% endif %}
+
 {%- if product and product != empty -%}
-  {% assign numberRating = product.metafields.judgeme.badge | split: "data-number-of-reviews='" | last | split: "'" | first | plus: 0 %}
-  <div class="card-wrapper product-card-wrapper" data-handle="{{ product.handle }}">
+  <div class="relative card-wrapper product-card-wrapper" data-handle="{{ product.handle }}">
     {%- if media -%}
-      <a href="{{ product.url | split: '?' | first }}" class="relative block group overflow-hidden rounded-xl" title="{{ product.title }}">
+      <div class="relative block group overflow-hidden rounded-md" title="{{ product.title }}">
         <img
           srcset="
           {%- if media.width >= 165 -%}
@@ -35,41 +21,41 @@
           src="{{ media | image_url: width: 1024 }}"
           sizes="(min-width: {{ 1440 }}px) {{ 1440 | minus: 130 | divided_by: 4 }}px, (min-width: 990px) calc((100vw - 130px) / 4), (min-width: 750px) calc((100vw - 120px) / 3), calc((100vw - 35px) / 2)"
           alt="{{ media | split: "/" | last | replace: "-", " " | split: "." | first }}"
-          class="aspect-1 block group-hover:scale-105 transition-all duration-300 bg-image-placeholder bg-no-repeat bg-cover bg-center text-transparent"
+          class="aspect-1 block group-hover:scale-105 transition-all duration-300"
           loading="{{ lazy_load }}"
           width="1024"
           height="{{ 1024 | divided_by: media.aspect_ratio }}">
-      </a>
+      </div>
     {%- endif -%}
-    <div class="relative mt-1">
-      <{{ heading }}>
-        <a href="{{ product.url | split: '?' | first }}" class="text-secondaryDark font-body font-normal text-sm !leading-7 tracking-[0] truncate-line two-lines overflow-hidden break-words">
-          {{ product.title | escape }}
-        </a>
+    <div class="mt-6">
+      <{{ heading }} class="text-primary font-body font-normal text-sm lg:text-base tracking-tight line-clamp-2 overflow-hidden break-words mb-3">
+        <span class="!block absolute top-0 left-0 w-full h-full"></span>
+        {{ product.title | escape }}
       </{{ heading }}>
-      {% if numberRating > 0 %}
-        {{ product.metafields.judgeme.badge }}
-      {% endif %}
-      <span class="text-sm text-[#8e8e8e]">{{ product.type }}</span>
-      {% render 'price', product: product, use_variant: true %}
+      
+      <a href="{{ product.url | split: '?' | first }}" class="px-6 py-1 btn-secondary">
+        Shop - {{ product.selected_or_first_available_variant.price | money }}
+      </a>
     </div>
   </div>
 {%- else -%}
-  <div class="card-wrapper product-card-wrapper">
-    <div class="relative block group overflow-hidden">
+  <div class="relative card-wrapper product-card-wrapper">
+    <div class="relative block group overflow-hidden rounded-md">
       {%- if placeholder_image -%}
         {{ placeholder_image | placeholder_svg_tag: 'aspect-1 block group-hover:scale-105 w-full h-fit transition-all' }}
       {%- else -%}
         {{ 'product-apparel-2' | placeholder_svg_tag: 'aspect-1 block group-hover:scale-105 w-full h-fit transition-all' }}
       {%- endif -%}
     </div>
-    <div class="relative mt-1">
-      <{{ heading }}>
-        <a role="link" aria-disabled="true" class="text-primary font-body font-normal text-sm !leading-7 tracking-[0] truncate-line two-lines overflow-hidden break-words">
-          {{ 'products.product.example_product_title' | t }}
-        </a>
+    <div class="mt-6">
+      <{{ heading }} class="text-primary font-body font-normal text-sm lg:text-base tracking-tight line-clamp-2 overflow-hidden break-words mb-3">
+        <span class="!block absolute top-0 left-0 w-full h-full"></span>
+        {{ 'products.product.example_product_title' | t }}
       </{{ heading }}>
-      {% render 'price' %}
+
+      <div class="px-6 py-1 btn-secondary cursor-pointer">
+        Shop - {{ 1999 | money }}
+      </div>
     </div>
   </div>
 {%- endif -%}

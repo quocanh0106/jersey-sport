@@ -7,7 +7,7 @@
     {% if blog.metafields.custom.banner != blank %}
       <img
         src="{{ blog.metafields.custom.banner | image_url: width: 1380 }}"
-        class="w-full min-h-[200px] object-cover {% if blog.metafields.custom.banner_mobile != blank %} hidden lg:block{% else %} block{% endif %} bg-image-placeholder bg-no-repeat bg-cover bg-center text-transparent"
+        class="w-full min-h-[200px] object-cover {% if blog.metafields.custom.banner_mobile != blank %} hidden lg:block{% else %} block{% endif %} "
         loading="loading"
         width="{{ blog.metafields.custom.banner.value.width }}"
         height="{{ blog.metafields.custom.banner.value.height }}"
@@ -16,7 +16,7 @@
     {% if blog.metafields.custom.banner_mobile != blank %}
       <img
         src="{{ blog.metafields.custom.banner_mobile | image_url: width: 768 }}"
-        class="w-full min-h-[200px] object-cover block{% if blog.metafields.custom.banner != blank %} lg:hidden{% endif %} bg-image-placeholder bg-no-repeat bg-cover bg-center text-transparent"
+        class="w-full min-h-[200px] object-cover block{% if blog.metafields.custom.banner != blank %} lg:hidden{% endif %} "
         loading="eager"
         width="{{ blog.metafields.custom.banner_mobile.value.width }}"
         height="{{ blog.metafields.custom.banner_mobile.value.height }}"

@@ -350,7 +350,7 @@
                       </select>
                     </div>
                     <div class="px-6 pb-6 pt-4">
-                      <button class="submit btn w-full !h-10 !rounded-[100px]">SUBMIT</button>
+                      <button class="submit btn-primary w-full !h-10 !rounded-[100px]">SUBMIT</button>
                     </div>
                   </div>
                 </select-country>
@@ -688,7 +688,7 @@
 
                 <add-to-cart class="block relative min-h-[54px]">
                   <div class="product-form__buttons flex flex-wrap gap-2">
-                    <button type="submit" name="add" class="product-form__submit button button--full-width btn-2" {% if product.selected_or_first_available_variant.available == false %} disabled{% endif %}>
+                    <button type="submit" name="add" class="product-form__submit button button--full-width btn-secondary" {% if product.selected_or_first_available_variant.available == false %} disabled{% endif %}>
                       <span>
                         {%- if product.selected_or_first_available_variant.available -%}
                           {{ 'products.product.add_to_cart' | t }}
@@ -1036,7 +1036,7 @@
       () => {
         document
           .querySelector(".customily-modal-preview-only .main")
-          .insertAdjacentHTML("beforeend", `<div class="absolute bottom-0 bg-background w-full p-5 rounded-b-xl"><button class="add-to-cart-preview w-full !max-w-[250px] mx-auto btn-2 py-3 px-6 !rounded-2xl">Add To Cart</button></div>`);
+          .insertAdjacentHTML("beforeend", `<div class="absolute bottom-0 bg-background w-full p-5 rounded-b-xl"><button class="add-to-cart-preview w-full !max-w-[250px] mx-auto btn-secondary py-3 px-6 !rounded-2xl">Add To Cart</button></div>`);
 
         const addToCartButton = document.querySelector(".add-to-cart-preview");
         addToCartButton.addEventListener("click", () => {

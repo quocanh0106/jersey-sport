@@ -46,43 +46,73 @@ module.exports = {
         xxxs: [
           '0.5rem',
           {
-            lineHeight: '1.2',
+            lineHeight: '1.25',
           },
         ],
         xxs: [
           '0.625rem',
           {
-            lineHeight: '1.4',
+            lineHeight: '1.25',
           },
         ],
         xs: [
           '0.75rem',
           {
-            lineHeight: '1.8',
+            lineHeight: '1.5',
           },
         ],
         lg: [
           '1.125rem',
           {
-            lineHeight: '1.8',
+            lineHeight: '1.5',
+          },
+        ],
+        "6xl": [
+          '3.75rem',
+          {
+            lineHeight: '1.5',
+          },
+        ],
+        "5xl": [
+          '3rem',
+          {
+            lineHeight: '1.5',
+          },
+        ],
+        "4xl": [
+          '2rem',
+          {
+            lineHeight: '1.5',
+          },
+        ],
+        "3xl": [
+          '1.75rem',
+          {
+            lineHeight: '1.5',
+          },
+        ],
+        "2xl": [
+          '1.5rem',
+          {
+            lineHeight: '1.5',
           },
         ],
         xl: [
           '1.25rem',
           {
-            lineHeight: '1.8',
+            lineHeight: '1.5',
           },
         ],
-        md: [
+        base: [
           '1rem',
           {
-            lineHeight: '1.8',
+            lineHeight: '1.5',
           },
         ],
         sm: [
           '0.875rem',
           {
-            lineHeight: '1.8',
+            lineHeight: '1.25',
           },
         ]
       },
@@ -223,7 +253,6 @@ module.exports = {
         'main-article': 'calc(200%/3 - 5px)',
         'main-article-sidebar': 'calc(100%/3 + 5px)',
         'container': 'var(--page-width)',
-        'container-2': 'var(--page-width-2)'
       },
       minWidth: {
         12: '3rem',

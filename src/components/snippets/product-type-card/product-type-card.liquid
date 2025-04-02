@@ -28,7 +28,7 @@
                  (max-width: 1024px) 512px,
                  1024px"
           src="{{ image_block | image_url }}"
-          {% if image_block.alt != blank %} alt="{{ image_block.alt | escape }}"{% else %} alt="{{ image_block | split: "/" | last | replace: "-", " " | split: "." | first }}"{% endif %} height="{{ image_block.height | divided_by: 4 }}" width="{{ image_block.width | divided_by: 4 }}" loading="lazy" class="w-full h-full object-cover block group-hover:scale-105 transition-all bg-image-placeholder bg-no-repeat bg-cover bg-center text-transparent">
+          {% if image_block.alt != blank %} alt="{{ image_block.alt | escape }}"{% else %} alt="{{ image_block | split: "/" | last | replace: "-", " " | split: "." | first }}"{% endif %} height="{{ image_block.height | divided_by: 4 }}" width="{{ image_block.width | divided_by: 4 }}" loading="lazy" class="w-full h-full object-cover block group-hover:scale-105 transition-all ">
       </a>
     </div>
     <h3 class="m-0 overflow-hidden">

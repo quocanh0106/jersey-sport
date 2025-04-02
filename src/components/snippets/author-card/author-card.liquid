@@ -19,7 +19,7 @@
         src="{{ author.image | image_url: width: 533 }}"
         sizes="(min-width: {{ 1440 }}px) {{ 1440 | minus: 100 | divided_by: 2 }}px, (min-width: 750px) calc((100vw - 130px) / 2), calc((100vw - 50px) / 2)"
         {% if author.image.alt != blank %}alt="{{ author.image.alt | escape }}"{% else %}alt="{{ author.image | split: "/" | last | replace: "-", " " | split: "." | first }}"{% endif %}
-        class="w-full h-full object-cover group-hover:scale-105 transition-all bg-image-placeholder bg-no-repeat bg-cover bg-center text-transparent aspect-1 lg:aspect-[106/121]"
+        class="w-full h-full object-cover group-hover:scale-105 transition-all  aspect-1 lg:aspect-[106/121]"
         {% unless lazy_load == false %}loading="lazy"{% endunless %} width="657" height="{{ 657 | divided_by: author.image.aspect_ratio }}">
       {%- endif -%}
       <div class="hidden lg:flex absolute w-full h-full top-0 left-0 z-10 opacity-0 invisible group-hover:opacity-100 group-hover:visible p-5 flex-col justify-between bg-[#5C5C5C] bg-opacity-80 transition-all">

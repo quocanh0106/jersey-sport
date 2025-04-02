@@ -61,8 +61,8 @@
             autocomplete="email">
         </div>
 
-        <button type="submit" class="btn text-center w-full !h-12.5 py-2 px-6 lg:px-8 !uppercase !text-base lg:leading-none mb-3 lg:mb-4">{{ 'customer.login_page.submit' | t }}</button>
-        <a href="#login" class="btn btn-2 text-center w-full py-4 px-6 lg:px-8 !uppercase text-base lg:leading-none">{{ 'customer.reset_password.back_to_login' | t }}</a>
+        <button type="submit" class="btn-primary text-center w-full !h-12.5 py-2 px-6 lg:px-8 !uppercase !text-base lg:leading-none mb-3 lg:mb-4">{{ 'customer.login_page.submit' | t }}</button>
+        <a href="#login" class="btn-primary btn-secondary text-center w-full py-4 px-6 lg:px-8 !uppercase text-base lg:leading-none">{{ 'customer.reset_password.back_to_login' | t }}</a>
       {%- endform -%}
     </validate-form>
   </div>
@@ -165,7 +165,7 @@
           <a href="#recover" class="block text-sm text-primary hover:text-primary leading-2 font-medium">{{ 'customer.login_page.forgot_password' | t }}</a>
         </div>
 
-        <button type="submit" class="btn w-full !h-12.5 py-2 px-6 lg:px-8 !uppercase !text-base leading-none mb-3 order-6 lg:order-5">{{ 'customer.login_page.title' | t }}</button>
+        <button type="submit" class="btn-primary w-full !h-12.5 py-2 px-6 lg:px-8 !uppercase !text-base leading-none mb-3 order-6 lg:order-5">{{ 'customer.login_page.title' | t }}</button>
 
         <span class="account-description block text-xs mb-6 lg:mb-8 font-normal text-primary text-left order-7 lg:order-6 max-w-[270px] mx-auto lg:max-w-full">{{ 'customer.login_page.introduce_html' | t: sitename: shop.name }}</span>
 
@@ -186,7 +186,7 @@
     <div class="scroll-m-80 mt-4">
       <h2 class="capitalize text-center mb-3 font-semibold text-primary text-h4 lg:text-h3">{{ 'customer.login_page.guest_title' | t }}</h2>
       {%- form 'guest_login' -%}
-        <button class="btn w-full py-4 px-6 lg:px-8 !uppercase text-base leading-none">
+        <button class="btn-primary w-full py-4 px-6 lg:px-8 !uppercase text-base leading-none">
           {{ 'customer.login_page.guest_continue' | t }}
         </button>
       {%- endform -%}

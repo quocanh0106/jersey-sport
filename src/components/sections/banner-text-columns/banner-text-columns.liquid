@@ -57,7 +57,7 @@
                 alt="{{ block.settings.image | split: "/" | last | replace: "-", " " | split: "." | first }}"
                 {% endif %}
                 loading="lazy"
-                class="w-full h-full object-cover {% if block.settings.image_mobile %} hidden lg:block{% else %} block{% endif %} bg-image-placeholder bg-no-repeat bg-cover bg-center text-transparent"
+                class="w-full h-full object-cover {% if block.settings.image_mobile %} hidden lg:block{% else %} block{% endif %} "
                 width="{{ block.settings.image.width }}"
                 height="{{ block.settings.image.height }}">
             {% endif %}
@@ -94,7 +94,7 @@
                 alt="{{ block.settings.image_mobile | split: "/" | last | replace: "-", " " | split: "." | first }}"
                 {% endif %}
                 loading="lazy"
-                class="w-full h-full object-cover block{% if block.settings.image %} lg:hidden{% endif %} bg-image-placeholder bg-no-repeat bg-cover bg-center text-transparent"
+                class="w-full h-full object-cover block{% if block.settings.image %} lg:hidden{% endif %} "
                 width="{{ block.settings.image_mobile.width }}"
                 height="{{ block.settings.image_mobile.height }}">
             {% endif %}

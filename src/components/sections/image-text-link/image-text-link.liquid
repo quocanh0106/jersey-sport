@@ -27,7 +27,7 @@
 {%- endstyle -%}
 
 <div data-section-id="{{ section.id }}">
-  <div class="page-width-2 relative">
+  <div class="page-width relative">
     {% if section.settings.heading != blank %}
       <h2 class="text-base lg:text-lg font-semibold text-primary mb-5">{{ section.settings.heading | escape }}</h2>
     {% endif %}
@@ -58,7 +58,7 @@
                     {% else %}
                     alt="{{ block.settings.image | split: "/" | last | replace: "-", " " | split: "." | first }}"
                     {% endif %}
-                    class="group-hover:scale-105 transition-all absolute top-0 left-0 w-full h-full object-cover object-center {{ block.settings.image_type }} bg-image-placeholder bg-no-repeat bg-cover bg-center text-transparent"
+                    class="group-hover:scale-105 transition-all absolute top-0 left-0 w-full h-full object-cover object-center {{ block.settings.image_type }} "
                     loading="lazy"
                     width="200"
                     height="{{ 200 | divided_by: block.settings.image.aspect_ratio }}"

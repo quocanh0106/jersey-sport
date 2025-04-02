@@ -12,7 +12,7 @@
     "page_banner": {
       "type": "page-banner",
       "settings": {
-        "color_title": "#000000",
+        "color_title": "#1d232e",
         "color_link": "#044d79",
         "color_subtitle": "#cccccc",
         "background_color": "#FFFFFF",
