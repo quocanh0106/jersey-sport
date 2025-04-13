@@ -96,54 +96,54 @@
           "type": "banner",
           "settings": {
             "content_position": "left",
-            "image": "shopify://shop_images/banner_1_08114161-5cf5-4013-b9b7-79609fe8d823.jpg",
+            "image": "shopify://shop_images/WEAR_WHAT_THE_PLAYERS_WEAR.jpg",
             "heading_tag": "h2",
             "heading": "Jersey",
-            "colors_heading": "#1d232e",
+            "colors_heading": "#FFFFFF",
             "button_label": "Explore",
             "link": "",
-            "colors_text_button": "#fff",
-            "colors_background_button": "#044D79",
+            "colors_text_button": "#000000",
+            "colors_background_button": "#ffffff",
             "row_span_mobile": 1,
             "row_span_desktop": 2,
             "col_span_mobile": 1,
-            "col_span_desktop": 2
+            "col_span_desktop": 4
           }
         },
         "banner_LtLW8N": {
           "type": "banner",
           "settings": {
             "content_position": "left",
-            "image": "shopify://shop_images/banner_2.jpg",
+            "image": "shopify://shop_images/Banner_swngman.jpg",
             "heading_tag": "h2",
-            "heading": "SWING<br>Short<br>30%<br>OFF",
+            "heading": "SWINGShort30%OFF",
             "colors_heading": "#1d232e",
             "button_label": "Explore",
             "link": "",
-            "colors_text_button": "#fff",
-            "colors_background_button": "#044D79",
+            "colors_text_button": "#FFFFFF",
+            "colors_background_button": "#000000",
             "row_span_mobile": 1,
             "row_span_desktop": 1,
             "col_span_mobile": 1,
-            "col_span_desktop": 1
+            "col_span_desktop": 3
           }
         },
         "banner_wXYpQf": {
           "type": "banner",
           "settings": {
             "content_position": "left",
-            "image": "shopify://shop_images/banner_3.jpg",
+            "image": "shopify://shop_images/snapback.jpg",
             "heading_tag": "h2",
-            "heading": "Snapback<br>Hats",
-            "colors_heading": "#1d232e",
+            "heading": "SnapbackHats",
+            "colors_heading": "#000000",
             "button_label": "Shop",
             "link": "",
-            "colors_text_button": "#fff",
-            "colors_background_button": "#044D79",
+            "colors_text_button": "#FFFFFF",
+            "colors_background_button": "#000000",
             "row_span_mobile": 1,
             "row_span_desktop": 1,
             "col_span_mobile": 1,
-            "col_span_desktop": 1
+            "col_span_desktop": 3
           }
         }
       },
@@ -155,7 +155,7 @@
       "settings": {
         "fullwidth": false,
         "col_per_row_mobile": 1,
-        "col_per_row_desktop": 3,
+        "col_per_row_desktop": 7,
         "margin_top": 32,
         "margin_bottom": 32,
         "margin_top_mb": 0,
