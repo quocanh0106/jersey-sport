@@ -325,6 +325,13 @@
       },
       {
         "type": "text",
+        "id": "social_twitter_link",
+        "label": "Twitter",
+        "info": "https://twitter.com/",
+        "default": "https://twitter.com/"
+      },
+      {
+        "type": "text",
         "id": "social_facebook_link",
         "label": "Facebook",
         "info": "https://facebook.com/",
@@ -332,24 +339,17 @@
       },
       {
         "type": "text",
+        "id": "social_pinterest_link",
+        "label": "Pinterest",
+        "info": "https://pinterest.com/",
+        "default": "https://pinterest.com/"
+      },
+      {
+        "type": "text",
         "id": "social_instagram_link",
         "label": "Instagram",
         "info": "http://instagram.com/",
         "default": "https://instagram.com/"
-      },
-      {
-        "type": "text",
-        "id": "social_tiktok_link",
-        "label": "TikTok",
-        "info": "https://tiktok.com/@",
-        "default": "https://tiktok.com/@"
-      },
-      {
-        "type": "text",
-        "id": "social_youtube_link",
-        "label": "YouTube",
-        "info": "https://www.youtube.com/",
-        "default": "https://www.youtube.com/"
       }
     ]
   },

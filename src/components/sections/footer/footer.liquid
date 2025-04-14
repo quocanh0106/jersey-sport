@@ -47,189 +47,75 @@
             {% endif %}
             {%- if block.settings.heading != blank -%}
               <div class="summary flex items-center justify-between gap-x-2 h-fit">
-                <div class="heading text-base font-heading p-0 leading-4 text-primary font-bold">{{- block.settings.heading | escape -}}</div>
+                <div class="heading {% if block.type == 'link_list' %}text-base font-normal{% else %}text-xl font-medium tracking-tighter{%- endif -%}">{{- block.settings.heading | escape -}}</div>
                 {% if block.type == 'link_list' %}
-                  <span class="heading icon-add md:!hidden text-primary">{%- render 'icon-down'
-, class: 'w-6 h-6' -%}</span>
-                  <span class="heading icon-minus md:!hidden text-primary">{%- render 'icon-up'
-, class: 'w-6 h-6' -%}</span>
+                  <span class="heading icon-add md:!hidden text-primary">{%- render 'icon-down', class: 'w-6 h-6' -%}</span>
+                  <span class="heading icon-minus md:!hidden text-primary">{%- render 'icon-up', class: 'w-6 h-6' -%}</span>
                 {%- endif -%}
               </div>
             {%- endif -%}
             {%- case block.type -%}
               {%- when 'text' -%}
-                <div class="flex flex-col md:flex-row md:justify-between md:items-start lg:flex-col col-span-1">
-                  {%- if block.settings.email != blank or block.settings.address != blank or block.settings.address2 != blank or block.settings.time_work != blank -%}
-                    <div class="mt-4">
-                      <ul class="grid gap-1">
-                        {%- if block.settings.email != blank -%}
-                          <li>
+                  {%- if block.settings.show_social -%}
+                    <div class="mt-4 col-span-1">
+                      <ul class="flex flex-wrap gap-5 items-center" role="list">
+                        {%- if settings.social_facebook_link != blank -%}
+                          <li class="w-5 h-5">
                             <a
-                              href="mailto:{{ block.settings.email }}"
-                              class="text-sm font-normal leading-normal text-primary hover:text-primary"
+                              href="{{ settings.social_facebook_link }}"
+                              class="social text-xs leading-normal text-primary hover:text-primary"
                               rel="nofollow"
                               target="_blank"
-                              title="{{ block.settings.email }}">
-                              {{ block.settings.email }}
+                              title="Facebook">
+                              {%- render 'icon-facebook' -%}
                             </a>
                           </li>
                         {%- endif -%}
-                        {%- if block.settings.address != blank -%}
-                          <li>
-                            <p class="text-sm font-normal leading-normal text-primary">
-                              {{ block.settings.address }}
-                            </p>
+
+                        {%- if settings.social_twitter_link != blank -%}
+                          <li class="w-5 h-5">
+                            <a
+                              href="{{ settings.social_twitter_link }}"
+                              class="social text-xs leading-normal text-primary hover:text-primary"
+                              rel="nofollow"
+                              target="_blank"
+                              title="Twitter">
+                              {%- render 'icon-twitter' -%}
+                            </a>
                           </li>
                         {%- endif -%}
-                        {%- if block.settings.address_2 != blank -%}
-                          <li>
-                            <p class="text-sm font-normal leading-normal text-primary">
-                              {{ block.settings.address_2 }}
-                            </p>
+
+                        {%- if settings.social_pinterest_link != blank -%}
+                          <li class="w-5 h-5">
+                            <a
+                              href="{{ settings.social_pinterest_link }}"
+                              class="social text-xs leading-normal text-primary hover:text-primary"
+                              rel="nofollow"
+                              target="_blank"
+                              title="Pinterest">
+                              {%- render 'icon-pinterest' -%}
+                            </a>
+                          </li>
+                        {%- endif -%}
+
+                        {%- if settings.social_instagram_link != blank -%}
+                          <li class="w-5 h-5">
+                            <a
+                              href="{{ settings.social_instagram_link }}"
+                              class="social text-xs leading-normal text-primary hover:text-primary"
+                              rel="nofollow"
+                              target="_blank"
+                              title="Instagram">
+                              {%- render 'icon-instagram' -%}
+                            </a>
                           </li>
                         {%- endif -%}
                       </ul>
-                      {%- if block.settings.heading_2 != blank -%}
-                        <div class="text-sm font-semibold uppercase mt-4">
-                          {{ block.settings.heading_2 }}
-                        </div>
-                      {%- endif -%}
-                      {%- if block.settings.time_work != blank -%}
-                        <div>
-                          <p class="text-sm font-normal leading-normal text-primary">
-                            {{ block.settings.time_work }}
-                          </p>
-                        </div>
-                      {%- endif -%}
-                      {%- if block.settings.show_social == true -%}
-                        <div class="text-sm font-semibold mt-4">{{ block.settings.heading_social }}</div>
-                        <ul class="flex flex-wrap gap-5 items-center" role="list">
-                          {%- if settings.social_facebook_link != blank -%}
-                            <li class="w-5 h-5">
-                              <a
-                                href="{{ settings.social_facebook_link }}"
-                                class="social text-xs leading-normal text-primary hover:text-primary"
-                                rel="nofollow"
-                                target="_blank"
-                                title="Facebook">
-                                {%- render 'icon-facebook' -%}
-                              </a>
-                            </li>
-                          {%- endif -%}
-
-                          {%- if settings.social_twitter_link != blank -%}
-                            <li class="w-5 h-5">
-                              <a
-                                href="{{ settings.social_twitter_link }}"
-                                class="social text-xs leading-normal text-primary hover:text-primary"
-                                rel="nofollow"
-                                target="_blank"
-                                title="Twitter">
-                                {%- render 'icon-twitter' -%}
-                              </a>
-                            </li>
-                          {%- endif -%}
-
-                          {%- if settings.social_instagram_link != blank -%}
-                            <li class="w-5 h-5">
-                              <a
-                                href="{{ settings.social_instagram_link }}"
-                                class="social text-xs leading-normal text-primary hover:text-primary"
-                                rel="nofollow"
-                                target="_blank"
-                                title="Instagram">
-                                {%- render 'icon-instagram' -%}
-                              </a>
-                            </li>
-                          {%- endif -%}
-
-                          {%- if settings.social_tiktok_link != blank -%}
-                            <li class="w-5 h-5">
-                              <a
-                                href="{{ settings.social_tiktok_link }}"
-                                class="social text-xs leading-normal text-primary hover:text-primary"
-                                rel="nofollow"
-                                target="_blank"
-                                title="Tiktok">
-                                {%- render 'icon-tiktok' -%}
-                              </a>
-                            </li>
-                          {%- endif -%}
-
-                          {%- if settings.social_youtube_link != blank -%}
-                            <li class="w-5 h-5">
-                              <a
-                                href="{{ settings.social_youtube_link }}"
-                                class="social text-xs leading-normal text-primary hover:text-primary"
-                                rel="nofollow"
-                                target="_blank"
-                                title="Youtube">
-                                {%- render 'icon-youtube' -%}
-                              </a>
-                            </li>
-                          {%- endif -%}
-
-                          {%- if settings.social_pinterest_link != blank -%}
-                            <li class="w-5 h-5">
-                              <a
-                                href="{{ settings.social_pinterest_link }}"
-                                class="social text-xs leading-normal text-primary hover:text-primary"
-                                rel="nofollow"
-                                target="_blank"
-                                title="Pinterest">
-                                {%- render 'icon-pinterest' -%}
-                              </a>
-                            </li>
-                          {%- endif -%}
-
-                          {%- if settings.social_tumblr_link != blank -%}
-                            <li class="w-5 h-5">
-                              <a
-                                href="{{ settings.social_tumblr_link }}"
-                                class="social text-xs leading-normal text-primary hover:text-primary"
-                                rel="nofollow"
-                                target="_blank"
-                                title="Tumblr">
-                                {%- render 'icon-tumblr' -%}
-                              </a>
-                            </li>
-                          {%- endif -%}
-
-                          {%- if settings.social_snapchat_link != blank -%}
-                            <li class="w-5 h-5">
-                              <a
-                                href="{{ settings.social_snapchat_link }}"
-                                class="social text-xs leading-normal text-primary hover:text-primary"
-                                rel="nofollow"
-                                target="_blank"
-                                title="Snapchat">
-                                {%- render 'icon-snapchat' -%}
-                              </a>
-                            </li>
-                          {%- endif -%}
-
-                          {%- if settings.social_vimeo_link != blank -%}
-                            <li class="w-5 h-5">
-                              <a
-                                href="{{ settings.social_vimeo_link }}"
-                                class="social text-xs leading-normal text-primary hover:text-primary"
-                                rel="nofollow"
-                                target="_blank"
-                                title="Vimeo">
-                                {%- render 'icon-vimeo' -%}
-                              </a>
-                            </li>
-                          {%- endif -%}
-                        </ul>
-                      {%- endif -%}
-
                     </div>
                   {% endif %}
-
-                </div>
               {%- when 'link_list' -%}
                 {%- if block.settings.menu != blank -%}
-                  <ul class="details md:!mt-4 md:!max-h-full p-0 grid gap-y-4">
+                  <ul class="details md:!mt-4 md:!max-h-full p-0 grid gap-y-3">
                     {%- for link in block.settings.menu.links -%}
                       <li>
                         <a
@@ -248,11 +134,14 @@
       </div>
     {%- endif -%}
 
-    <div class="bg-[#E5E5E5] w-full col-span-{{ section.settings.col_per_row_mobile }} md:col-span-{{ section.settings.col_per_row_tablet }} lg:col-span-{{ section.settings.col_per_row_desktop }} 
-    flex flex-col lg:flex-row items-center justify-center lg:justify-between py-5 px-4 rounded-t-lg">
+
+  </div>
+  <div class="bg-[#FAFAFA]">
+    <div class="page-width w-full col-span-{{ section.settings.col_per_row_mobile }} md:col-span-{{ section.settings.col_per_row_tablet }} lg:col-span-{{ section.settings.col_per_row_desktop }} 
+      flex flex-col lg:flex-row items-center justify-center lg:justify-between py-10">
       {%- if section.blocks.size > 0 -%}
         {% if section.settings.copyright != blank %}
-          <p class="text-center text-sm !text-primary order-2 md:order-1">{{ section.settings.copyright }}</p>
+          <p class="text-center text-xs !text-primary order-2 md:order-1">{{ section.settings.copyright }}</p>
         {% endif %}
       {% endif %}
       <ul class="flex flex-wrap items-center gap-2 justify-center mb-3 md:mb-0 md:order-2" role="list">
@@ -260,7 +149,7 @@
           {% if type == 'american_express' %}
             <li>
               {% render 'icon-amex'
-                , class: 'icon icon--full-color w-9.5 h-auto' %}
+                , class: 'icon icon--full-color w-9 h-auto' %}
             </li>
           {% else %}
             <li>
@@ -366,39 +255,15 @@
             "type": "image_picker",
             "id": "logo",
             "label": "Footer logo"
-          }, {
+          },{
             "type": "text",
             "id": "heading",
-            "default": "Get In Touch",
+            "default": "Quick links",
             "label": "Heading"
-          }, {
-            "type": "text",
-            "id": "email",
-            "label": "Email"
-          }, {
-            "type": "text",
-            "id": "address",
-            "label": "Address"
-          }, {
-            "type": "text",
-            "id": "address_2",
-            "label": "Address 2"
-          }, {
-            "type": "text",
-            "id": "heading_2",
-            "label": "Heading 2"
-          }, {
-            "type": "text",
-            "id": "time_work",
-            "label": "Time work"
           }, {
             "type": "header",
             "content": "Setting social media"
-          }, {
-            "type": "text",
-            "id": "heading_social",
-            "label": "Heading social"
-          }, {
+          },{
             "type": "checkbox",
             "id": "show_social",
             "default": false,
