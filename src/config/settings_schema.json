@@ -325,31 +325,38 @@
       },
       {
         "type": "text",
+        "id": "social_thread_link",
+        "label": "Thread"
+      },
+      {
+        "type": "text",
         "id": "social_twitter_link",
-        "label": "Twitter",
-        "info": "https://twitter.com/",
-        "default": "https://twitter.com/"
+        "label": "Twitter"
       },
       {
         "type": "text",
         "id": "social_facebook_link",
-        "label": "Facebook",
-        "info": "https://facebook.com/",
-        "default": "https://facebook.com/"
+        "label": "Facebook"
       },
       {
         "type": "text",
         "id": "social_pinterest_link",
-        "label": "Pinterest",
-        "info": "https://pinterest.com/",
-        "default": "https://pinterest.com/"
+        "label": "Pinterest"
       },
       {
         "type": "text",
         "id": "social_instagram_link",
-        "label": "Instagram",
-        "info": "http://instagram.com/",
-        "default": "https://instagram.com/"
+        "label": "Instagram"
+      },
+      {
+        "type": "text",
+        "id": "social_youtube_link",
+        "label": "youtube"
+      },
+      {
+        "type": "text",
+        "id": "social_tiktok_link",
+        "label": "Tiktok"
       }
     ]
   },

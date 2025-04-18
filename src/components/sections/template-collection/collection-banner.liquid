@@ -11,31 +11,36 @@
     }
   }
 {% endstyle %}
-
-<div class="w-full relative{% unless collection.image != blank %} px-3 py-16{% endunless %} border-b border-primary">
-  {% if collection.image != blank %}
-    <img srcset="{%- if collection.image.width >= 180 -%}{{ collection.image | image_url: width: 180 }} 180w,{%- endif -%}
-      {%- if collection.image.width >= 360 -%} {{ collection.image | image_url: width: 360 }} 360w,{%- endif -%}
-      {%- if collection.image.width >= 540 -%} {{ collection.image | image_url: width: 540 }} 540w,{%- endif -%}
-      {%- if collection.image.width >= 720 -%} {{ collection.image | image_url: width: 720 }} 720w,{%- endif -%}
-      {%- if collection.image.width >= 900 -%} {{ collection.image | image_url: width: 900 }} 900w,{%- endif -%}
-      {%- if collection.image.width >= 1080 -%} {{ collection.image | image_url: width: 1080 }} 1080w{%- endif -%}"
-      src="{{ collection.image | image_url: width: 700 }}"
-      sizes="(min-width: 1100px) 900px, (min-width: 750px) calc((100vw - 130px) / 2), calc((100vw - 50px) / 2)"
-      alt="{{ altDt }}"
-      loading="eager"
-      class="w-full h-full transition-all {% if collection.image_mobile %} hidden md:block{% else %} block{% endif %}"
-      width="{{ collection.image.width }}"
-      height="{{ collection.image.height }}">
-  {% endif %}
-  <h1 class="text-h4 md:text-h3 lg:text-h2 absolute text-primary uppercase top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">{{ collection.title }}</h1>
+<div class="page-width">
+  <div class="flex items-center justify-center w-full relative h-12 lg:h-28 min-h-fit">
+    {% if section.settings.banner != blank %}
+      <img srcset="{%- if section.settings.banner.width >= 180 -%}{{ section.settings.banner | image_url: width: 180 }} 180w,{%- endif -%}
+        {%- if section.settings.banner.width >= 360 -%} {{ section.settings.banner | image_url: width: 360 }} 360w,{%- endif -%}
+        {%- if section.settings.banner.width >= 540 -%} {{ section.settings.banner | image_url: width: 540 }} 540w,{%- endif -%}
+        {%- if section.settings.banner.width >= 720 -%} {{ section.settings.banner | image_url: width: 720 }} 720w,{%- endif -%}
+        {%- if section.settings.banner.width >= 900 -%} {{ section.settings.banner | image_url: width: 900 }} 900w,{%- endif -%}
+        {%- if section.settings.banner.width >= 1080 -%} {{ section.settings.banner | image_url: width: 1080 }} 1080w{%- endif -%}"
+        src="{{ section.settings.banner | image_url: width: 700 }}"
+        sizes="(min-width: 1100px) 900px, (min-width: 750px) calc((100vw - 130px) / 2), calc((100vw - 50px) / 2)"
+        alt="{{ altDt }}"
+        loading="eager"
+        class="absolute top-0 left-0 w-full h-full object-cover transition-all"
+        width="{{ section.settings.banner.width }}"
+        height="{{ section.settings.banner.height }}">
+    {% endif %}
+    <h1 class="text-[30px] md:text-[40px] lg:text-[60px] text-background uppercase text-center relative">{{ collection.title }}</h1>
+  </div>
 </div>
-
 {% schema %}
   {
     "name": "Collection banner",
     "tag": "section",
     "settings": [
+      {
+        "type": "image_picker",
+        "id": "banner",
+        "label": "Banner"
+      }
     ],
     "presets": [
       {

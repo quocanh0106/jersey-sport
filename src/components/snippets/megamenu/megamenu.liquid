@@ -1,11 +1,11 @@
 <menu-drawer class="block fixed lg:static z-20 w-full h-full top-0 left-0 invisible lg:visible lg:before:content-none lg:translate-x-0 lg:bg-none 
                         before:content-empty before:bg-overlay before:top-0 before:left-0 before:absolute before:w-full before:h-full 
-                        before:transition-all before:duration-500 before:backdrop-blur-sm lg:border-y lg:border-primary" id="menu-drawer">
+                        before:transition-all before:duration-500 before:backdrop-blur-sm" id="menu-drawer">
   <div class="megamenu duration-500 lg:duration-0 -translate-x-full lg:translate-x-0 flex flex-col lg:block w-3/4 lg:w-full h-full bg-[#E9E9EA] lg:bg-[#1D232E] relative p-0">
     <span class="absolute top-2.5 right-2.5 z-30 bg-transparent close-menu flex lg:hidden justify-center items-center cursor-pointer">
       {% render 'icon-close', class: "w-6 h-6" %}
     </span>
-    <ul class="page-width-desktop grid grid-cols-2 gap-2 lg:gap-0 lg:grid-cols-9 w-full h-fit lg:h-fit lg:items-center transition-all lg:justify-center bg-[#E9E9EA] lg:bg-[#1D232E] relative px-2.5 lg:px-0">
+    <ul class="page-width-desktop grid grid-cols-2 gap-2 lg:gap-0 lg:flex w-full h-fit lg:h-fit lg:items-center transition-all lg:justify-center bg-[#E9E9EA] lg:bg-[#1D232E] relative px-2.5 lg:px-0">
       <li class="col-span-2 lg:hidden h-fit w-full lg:w-fit mb-4 lg:mb-0 py-2.5">
         <span class="text-base font-semibold text-primary lg:text-background">Menu</span>
       </li>
@@ -15,7 +15,7 @@
             assign link = linklists[block.settings.menu]
             assign megamenu = megamenu | append: link_handle | append: " "
         %}
-        <li class="flex lg:justify-center group parent-menu-effect hover:!opacity-100 w-full h-full mb-4 lg:mb-0">
+        <li class="flex lg:justify-center group parent-menu-effect hover:!opacity-100 w-full h-full mb-4 lg:mb-0 lg:min-w-[calc(100%/9_-_1.77px)] lg:w-fit lg:hover:bg-[#E7ECF3] lg:hover:text-primary">
           <div class="summary-head flex items-center justify-between lg:justify-center w-full h-full lg:h-fit">
             {% assign handleCollection0 = block.settings.url | split: '/' | last %}
             {% if collections[handleCollection0] %}
@@ -25,7 +25,7 @@
             {% endif %}
             <a
               href="{% if block.settings.url != blank %}{{ block.settings.url }}{% else %}#{% endif %}"
-              class="text-primary lg:text-background
+              class="text-primary lg:text-background lg:group-hover:text-primary
               text-sm lg:text-base lg:font-medium capitalize lg:uppercase no-underline font-body rounded-lg lg:rounded-none p-1.5 w-full h-full lg:h-auto lg:w-auto
               lg:py-3 lg:px-4"
               title="{{ titleCollection0 }}">
@@ -33,15 +33,15 @@
             </a>
           </div>
           {% if link.links != blank %}
-            <div class="details-head lg:pt-8 lg:pb-8 page-width-desktop -translate-x-full lg:-translate-x-1/2 absolute top-0 left-0 lg:left-1/2 lg:top-full z-20 text-left list-none block invisible opacity-0 text-sm w-full h-[calc(100vh_-_80px)] lg:h-fit group-hover:lg:visible group-hover:lg:opacity-100 transition-all transition-menu lg:shadow-megamenu">
+            <div class="details-head lg:pt-8 lg:pb-8 page-width-desktop -translate-x-full lg:-translate-x-1/2 absolute top-0 left-0 lg:left-1/2 lg:top-full z-20 text-left list-none block invisible opacity-0 text-sm w-full h-[calc(100vh_-_80px)] bg-[#E9E9EA] lg:bg-background lg:h-fit group-hover:lg:visible group-hover:lg:opacity-100 transition-all transition-menu lg:shadow-megamenu">
               <div class="z-20 px-2.5 lg:px-0 flex flex-col lg:flex-row h-full lg:justify-between overflow-x-hidden lg:overflow-auto lg:h-max lg:max-h-menudt relative">
                 <div class="back lg:hidden flex items-center w-full text-primary lg:text-background transition-all mb-4 py-2.5 z-0">
                   <span class="inline-block pr-1.5">{% render 'icon-prev', class: "w-5 h-5" %}</span>
                   <span class="text-sm lg:text-base leading-4 font-normal capitalize">{{ 'sections.header.back' | t }}</span>
                 </div>
                 <div class="grid grid-cols-1 gap-5 w-full h-fit overflow-auto static lg:overflow-unset z-20 lg:grid-cols-4">
-                  <span-link class="lg:hidden text-primary lg:text-background" href="{% if block.settings.url != blank %}{{ block.settings.url }}{% else %}#{% endif %}"
-                    class="flex relative items-center text-sm lg:text-base leading-4 lg:p-3 lg:px-4 text-primary lg:text-background-800 hover:text-primary lg:text-background-opacity-80 font-bold font-heading capitalize no-underline gap-1 mb-1 cursor-pointer transition-all"
+                  <span-link class="lg:hidden text-primary" href="{% if block.settings.url != blank %}{{ block.settings.url }}{% else %}#{% endif %}"
+                    class="flex relative items-center text-sm lg:text-base leading-4 lg:p-3 lg:px-4 text-primary hover:text-primary-opacity-80 font-bold font-heading capitalize no-underline gap-1 mb-1 cursor-pointer transition-all"
                     title="{{ titleCollection0 }}">
                     <span class="before:!hidden before:lg:!block before:!-bottom-3 before:!h-0.5 before:bg-primary-opacity-80 lg:leading-4 group-hover:before:w-full">
                       {{ block.settings.title }}
@@ -62,9 +62,9 @@
                       {% else %}
                         {% assign titleCollection1 = child_link.title %}
                       {% endif %}
-                      <div class="summary-head w-full flex items-center justify-between gap-x-2.5 text-primary lg:text-background transition-all">
+                      <div class="summary-head w-full flex items-center justify-between gap-x-2.5 text-primary transition-all">
                         <a href="{{ child_link.url }}" title="{{ titleCollection1 }}"
-                          class="font-normal capitalize lg:font-semibold text-primary lg:text-background text-sm leading-4 font-body">
+                          class="font-normal capitalize lg:font-semibold text-primary text-sm leading-4 font-body">
                           {{ child_link.title }}
                         </a>
                         {% if hasChild %}
@@ -81,7 +81,7 @@
                           </li>
                           <li class="w-full pb-6 lg:hidden">
                             <span-link href="{% if block.settings.url != blank %}{{ block.settings.url }}{% else %}#{% endif %}" title="{{ titleCollection0 }}"
-                                       class="text-sm lg:text-base font-bold text-primary lg:text-background font-heading capitalize">
+                                       class="text-sm lg:text-base font-bold text-primary font-heading capitalize">
                               {{ child_link.title }}
                             </span-link>
                           </li>
@@ -101,14 +101,14 @@
                                   {% if grandchild_link.url != '#' %}
                                     <a
                                       href="{{ grandchild_link.url }}"
-                                      class="{{ grandchild_link.title | downcase | replace: ' ', '_' }} block w-fit font-normal text-sm leading-4 font-body capitalize transition-all text-primary lg:text-background lg:text-primary lg:text-background"
+                                      class="{{ grandchild_link.title | downcase | replace: ' ', '_' }} block w-fit font-normal text-sm leading-4 font-body capitalize transition-all text-primary lg:text-primary"
                                       title="{{ titleCollection2 }}">
                                       <span>
                                         {{ grandchild_link.title }}
                                       </span>
                                     </a>
                                   {% else %}
-                                    <span class="block w-fit font-normal text-sm leading-4 font-body capitalize transition-all text-primary lg:text-background lg:text-primary lg:text-background">
+                                    <span class="block w-fit font-normal text-sm leading-4 font-body capitalize transition-all text-primary lg:text-primary">
                                       {{ grandchild_link.title }}
                                     </span>
                                   {% endif %}

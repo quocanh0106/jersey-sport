@@ -59,57 +59,97 @@
                   {%- if block.settings.show_social -%}
                     <div class="mt-4 col-span-1">
                       <ul class="flex flex-wrap gap-5 items-center" role="list">
+                        {%- if settings.social_thread_link != blank -%}
+                          <li class="w-8 h-8">
+                            <a
+                              href="{{ settings.social_thread_link }}"
+                              class="social text-xs leading-normal text-primary hover:text-primary"
+                              rel="nofollow"
+                              target="_blank"
+                              title="thread">
+                              {%- render 'icon-thread', class: "w-8 h-8" -%}
+                            </a>
+                          </li>
+                        {%- endif -%}
+
                         {%- if settings.social_facebook_link != blank -%}
-                          <li class="w-5 h-5">
+                          <li class="w-8 h-8">
                             <a
                               href="{{ settings.social_facebook_link }}"
                               class="social text-xs leading-normal text-primary hover:text-primary"
                               rel="nofollow"
                               target="_blank"
                               title="Facebook">
-                              {%- render 'icon-facebook' -%}
-                            </a>
-                          </li>
-                        {%- endif -%}
-
-                        {%- if settings.social_twitter_link != blank -%}
-                          <li class="w-5 h-5">
-                            <a
-                              href="{{ settings.social_twitter_link }}"
-                              class="social text-xs leading-normal text-primary hover:text-primary"
-                              rel="nofollow"
-                              target="_blank"
-                              title="Twitter">
-                              {%- render 'icon-twitter' -%}
-                            </a>
-                          </li>
-                        {%- endif -%}
-
-                        {%- if settings.social_pinterest_link != blank -%}
-                          <li class="w-5 h-5">
-                            <a
-                              href="{{ settings.social_pinterest_link }}"
-                              class="social text-xs leading-normal text-primary hover:text-primary"
-                              rel="nofollow"
-                              target="_blank"
-                              title="Pinterest">
-                              {%- render 'icon-pinterest' -%}
+                              {%- render 'icon-facebook', class: "w-8 h-8" -%}
                             </a>
                           </li>
                         {%- endif -%}
 
                         {%- if settings.social_instagram_link != blank -%}
-                          <li class="w-5 h-5">
+                          <li class="w-8 h-8">
                             <a
                               href="{{ settings.social_instagram_link }}"
                               class="social text-xs leading-normal text-primary hover:text-primary"
                               rel="nofollow"
                               target="_blank"
                               title="Instagram">
-                              {%- render 'icon-instagram' -%}
+                              {%- render 'icon-instagram', class: "w-8 h-8" -%}
                             </a>
                           </li>
                         {%- endif -%}
+
+                        {%- if settings.social_twitter_link != blank -%}
+                          <li class="w-8 h-8">
+                            <a
+                              href="{{ settings.social_twitter_link }}"
+                              class="social text-xs leading-normal text-primary hover:text-primary"
+                              rel="nofollow"
+                              target="_blank"
+                              title="Twitter">
+                              {%- render 'icon-twitter', class: "w-8 h-8" -%}
+                            </a>
+                          </li>
+                        {%- endif -%}
+
+                        {%- if settings.social_pinterest_link != blank -%}
+                          <li class="w-8 h-8">
+                            <a
+                              href="{{ settings.social_pinterest_link }}"
+                              class="social text-xs leading-normal text-primary hover:text-primary"
+                              rel="nofollow"
+                              target="_blank"
+                              title="Pinterest">
+                              {%- render 'icon-pinterest', class: "w-8 h-8" -%}
+                            </a>
+                          </li>
+                        {%- endif -%}
+
+                        {%- if settings.social_youtube_link != blank -%}
+                          <li class="w-8 h-8">
+                            <a
+                              href="{{ settings.social_youtube_link }}"
+                              class="social text-xs leading-normal text-primary hover:text-primary"
+                              rel="nofollow"
+                              target="_blank"
+                              title="youtube">
+                              {%- render 'icon-youtube', class: "w-8 h-8" -%}
+                            </a>
+                          </li>
+                        {%- endif -%}
+
+                        {%- if settings.social_tiktok_link != blank -%}
+                          <li class="w-8 h-8">
+                            <a
+                              href="{{ settings.social_tiktok_link }}"
+                              class="social text-xs leading-normal text-primary hover:text-primary"
+                              rel="nofollow"
+                              target="_blank"
+                              title="tiktok">
+                              {%- render 'icon-tiktok', class: "w-8 h-8" -%}
+                            </a>
+                          </li>
+                        {%- endif -%}
+
                       </ul>
                     </div>
                   {% endif %}
