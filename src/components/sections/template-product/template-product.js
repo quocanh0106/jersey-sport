@@ -1045,16 +1045,16 @@ class DeliveryWrapper extends HTMLElement {
     }
 
     if(this.location == 'EU') {
-      this.estimateArrival = this.content?.estimate_arrival_eu || '5-7'
+      this.estimateArrival = this.content?.estimate_arrival_eu || '10-17'
       this.orderShip = this.content?.order_ship_eu || '2-3'
     } else if(this.location == 'UK') {
-      this.estimateArrival = this.content?.estimate_arrival_uk || '5-7'
+      this.estimateArrival = this.content?.estimate_arrival_uk || '10-17'
       this.orderShip = this.content?.order_ship_uk || '2-3'
     } else if(this.location == 'US') {
-      this.estimateArrival = this.content?.estimate_arrival_us || '5-7'
+      this.estimateArrival = this.content?.estimate_arrival_us || '10-17'
       this.orderShip = this.content?.order_ship_us || '2-3'
     } else {
-      this.estimateArrival = this.content?.estimate_arrival_ww || '5-7'
+      this.estimateArrival = this.content?.estimate_arrival_ww || '10-17'
       this.orderShip = this.content?.order_ship_ww || '2-3'
     }
 
@@ -1068,9 +1068,7 @@ class DeliveryWrapper extends HTMLElement {
   }
 
   async getLocation() {
-    const result = !localStorage.getItem('country') ? await fetch('https://ipinfo.io/json?token=93329ec3c2d129')
-    .then(response => response.json())
-    .then(data => { return data }) : { country: localStorage.getItem('country') }
+    const result = !localStorage.getItem('country') ? { country: 'US' } : { country: localStorage.getItem('country') }
     if(!localStorage.getItem('country')) {
       localStorage.setItem('country', result.country)
     }
@@ -1134,19 +1132,19 @@ class DeliveryWrapper extends HTMLElement {
   }
 
   calculateSeconds(minValue, maxValue) {
-    const weekendDays = {
-      'Sat': true,
-      'Sun': true,
-    };
+    // const weekendDays = {
+    //   'Sat': true,
+    //   'Sun': true,
+    // };
   
     function addDaysSkippingWeekends(startDate, daysToAdd) {
       let currentDate = new Date(startDate);
       while (daysToAdd > 0) {
         currentDate.setDate(currentDate.getDate() + 1);
-        let dayName = currentDate.toLocaleString('en-US', { weekday: 'short' });
-        if (!weekendDays[dayName]) {
+        // let dayName = currentDate.toLocaleString('en-US', { weekday: 'short' });
+        // if (!weekendDays[dayName]) {
           daysToAdd--;
-        }
+        // }
       }
       return currentDate;
     }

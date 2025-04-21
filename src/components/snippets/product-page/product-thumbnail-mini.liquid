@@ -2,7 +2,7 @@
 {% unless width %}
   {% assign width = media.preview_image.width %}
 {% endunless %}
-<div class="relative w-full gallery-thumb" style="padding-bottom: 100%">
+<div class="relative w-full gallery-thumb" style="padding-bottom: {{ 1 | divided_by: aspect_ratio | times: 100 }}%">
   <img
     srcset="{{ media.preview_image | image_url: width: width }} {{ width }}w"
     sizes="{{ width }}px"

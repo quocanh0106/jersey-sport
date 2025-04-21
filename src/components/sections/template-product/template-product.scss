@@ -1,16 +1,45 @@
-input:checked + label:not(.color) {
+product-form input[type="radio"] + label {
+  @apply before:hidden after:hidden w-full min-h-9 py-1 px-2 border border-primary rounded text-center flex items-center justify-center;
+}
+
+product-form .gpo-choicelist {
+  @apply max-w-[calc(100%/3_-_12px)] w-full
+}
+
+product-form input[type="radio"]:checked + label:not(.color) {
   @apply border-special bg-background text-primary border-2;
 }
-input.disabled + label {
+product-form input[type="radio"].disabled + label {
   @apply line-through bg-gray-400 border-gray-400;
 }
 
-input:checked + label.color {
+product-form input[type="radio"]:checked + label.color {
   @apply border-special;
 }
+
+product-form .gpo-input-wrap {
+  @apply w-full rounded !border !border-primary;
+}
+
+.gpo-form__group {
+  @apply flex flex-wrap;
+  .gpo-label {
+    @apply mb-2;
+  }
+  .gpo-selected-values {
+    @apply mb-2 ml-1;
+  }
+  .gpo-ov-wrapper {
+    @apply w-full;
+  }
+  .messages {
+    @apply w-full;
+  }
+}
+
 .dark-link {
   @apply text-primary hover:text-primary;
-}
+} 
 /***** Button ******/
 
 .btn-primary {
@@ -41,7 +70,7 @@ input:checked + label.color {
 
 .product-form__submit,
 .product-form__submit.ld-over-inverse {
-  @apply !w-full !h-13.5 !relative !capitalize !border !text-h5 !font-heading !font-semibold !whitespace-nowrap !inline-block !tracking-[0] !transition-colors !cursor-pointer !shadow-none !underline-offset-[0.3rem] !no-underline !rounded-[20px];
+  @apply !w-full !h-13.5 !relative !capitalize !border !text-h5 !font-heading !font-semibold !whitespace-nowrap !inline-block !tracking-[0] !transition-colors !cursor-pointer !shadow-none !underline-offset-[0.3rem] !no-underline;
 }
 
 .product-form__submit.hidden-cart-btn-primary {
@@ -194,7 +223,7 @@ button#customily-cart-btn:disabled ~ .button-unavailable,
 .button-unavailable.onload {
   display: block;
   width: 100%;
-  height: 54px;
+  height: 50px;
   position: absolute;
   bottom: 0;
   right: 0;
@@ -291,6 +320,10 @@ inbox-online-store-chat {
 
 .jdgm-review-widget {
   @apply mx-auto px-container-mobile md:px-container-tablet lg:px-container-desktop max-w-container;
+}
+
+slider-component.gallery .slider-dots .slider-dot {
+  @apply !border-border bg-gray-300;
 }
 
 slider-component.gallery .slider-dots .slider-dot.active {

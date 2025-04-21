@@ -1,5 +1,5 @@
-<slider-component class="{% if section.settings.limit_media %}product-gallery {% endif %} gallery flex flex-col lg:flex-row gap-3 lg:gap-4" id="MediaGallery-{{ section.id }}">
-  <div class="group relative overflow-hidden order-1 lg:order-2 {% if product.media.size > 1 %} lg:max-w-[calc(100%_-_96px)]{% endif %} w-full h-fit aspect-1 rounded-lg">
+<slider-component class="{% if section.settings.limit_media %}product-gallery {% endif %} gallery flex flex-col gap-3 lg:gap-4" id="MediaGallery-{{ section.id }}">
+  <div class="group relative overflow-hidden w-full h-fit aspect-1 rounded-lg">
     <ul class="flex slider-wrapper slider-on-mobile slider-on-tablet slider-on-desktop">
       {%- if product.selected_or_first_available_variant.featured_media != null -%}
         {%- assign featured_media = product.selected_or_first_available_variant.featured_media -%}
@@ -48,15 +48,15 @@
     </div>
   </div>
   {%- if product.media.size > 1 -%}
-    <ul class="slider-dots slider-mobile !justify-normal flex lg:!grid !gap-3 lg:!gap-4 grid-cols-5 lg:grid-cols-1 lg:h-fit lg:max-w-[80px] lg:!max-h-[564px] w-full overflow-x-auto lg:overflow-hidden order-2 lg:order-1">
+    <ul class="slider-dots slider-mobile !justify-normal flex !gap-3 lg:!gap-4 lg:h-fit w-full overflow-x-auto lg:overflow-hidden">
       {%- if featured_media != null -%}
-        <li class="slider-dot !w-20 !h-20 !flex-none lg:!w-full !rounded-lg relative after:absolute after:top-0 after:left-0 after:w-full after:h-full after:z-10 cursor-pointer lg:max-w-full lg:!h-fit border-solid border border-transparent overflow-hidden active" data-position="1" data-media="{{ featured_media.id }}">
+        <li class="slider-dot !w-20 !h-auto !flex-none lg:!w-full !rounded-lg relative after:absolute after:top-0 after:left-0 after:w-full after:h-full after:z-10 cursor-pointer lg:max-w-[calc(100%/8_-_14px)] lg:!h-fit border-solid border overflow-hidden active" data-position="1" data-media="{{ featured_media.id }}">
           {% render 'product-thumbnail-mini', media: featured_media, lazy_load: true, width: 90 %}
         </li>
       {%- endif -%}
       {%- for media in product.media -%}
         {%- unless media.id == product.selected_or_first_available_variant.featured_media.id -%}
-          <li class="slider-dot !w-20 !h-20 !flex-none lg:!w-full !rounded-lg relative after:absolute after:top-0 after:left-0 after:w-full after:h-full after:z-10 cursor-pointer lg:max-w-full lg:!h-fit border-solid border border-transparent overflow-hidden{% if featured_media == null and forloop.first %} active{% endif %}" data-position="{% if featured_media == null %}{{ forloop.index }}{% else %}{{ forloop.index | plus: 1 }}{% endif %}" data-media="{{ media.id }}">
+          <li class="slider-dot !w-20 !h-auto !flex-none lg:!w-full !rounded-lg relative after:absolute after:top-0 after:left-0 after:w-full after:h-full after:z-10 cursor-pointer lg:max-w-[calc(100%/8_-_14px)] lg:!h-fit border-solid border overflow-hidden{% if featured_media == null and forloop.first %} active{% endif %}" data-position="{% if featured_media == null %}{{ forloop.index }}{% else %}{{ forloop.index | plus: 1 }}{% endif %}" data-media="{{ media.id }}">
             {% render 'product-thumbnail-mini', media: media, lazy_load: true, width: 90 %}
           </li>
         {%- endunless -%}

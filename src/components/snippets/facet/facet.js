@@ -19,14 +19,10 @@ class FacetFiltersForm extends HTMLElement {
 
     this.facetForm = this.querySelector('form');
     this.main();
-
   }
 
   main() {
-    this.querySelector('.submit-button')?.addEventListener('click', (event) => {
-      this.onSubmitHandler(event)
-      this.querySelector('toggle-filter').toggle()
-    })
+    this.facetForm.addEventListener('input', this.debouncedOnSubmit.bind(this));
     
     if (this.classList.contains('sort-by')) {
       this.accordion = this.querySelector('accordion-toggle')

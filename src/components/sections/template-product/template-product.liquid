@@ -17,12 +17,9 @@
   assign product_form_id = 'product-form-' | append: section.id
 
   for ship in shop.metaobjects.shipping.values
-    if ship.product_type == product.type
-      assign shipping = ship
-    endif
+    assign shipping = ship
   endfor
 %}
-
 <section id="MainProduct-{{ section.id }}" data-section="{{ section.id }}">
   <div class="page-width flex flex-wrap lg:flex-nowrap mt-5">
     <div class="product-media-wrapper w-full{% if product.media.size > 0 %} lg:max-w-[60%]{% else %} lg:max-w-full{% endif %} h-fit transition-all duration-200 static lg:sticky lg:top-4">
@@ -650,45 +647,34 @@
                   <p class="text-sm font-normal text-subtext mt-1 ml-7">Protect your order from damage, loss, or theft during shipping.</p>
                 {% endif %}
 
-                <div class="flex items-start gap-4 mb-4 mt-6">
-                  <label for="Quantity-{{ section.id }}" class="block text-base font-medium mb-2.5 text-primary">Qty</label>
-                  <quantity-input class="flex items-center relative w-fit h-8 rounded-3xl">
-                    <button class="w-8 h-8 border border-[#f2f2f6] bg-[#f2f2f6] rounded-l-3xl relative text-secondary transition-all before:content-empty before:w-full before:h-full before:z-[1] before:absolute before:left-0 before:top-0" name="minus" type="button" role="button" aria-label="minus">
-                      {% render 'icon-minus', class: 'w-4 h-4 mx-auto' %}
-                    </button>
-                    <input class="appearance-none border-none bg-[#f2f2f669] text-secondary text-xl leading-2 p-0.5 w-14 h-full font-medium text-center !ring-0 shadow-none focus:border-none" 
-                      type="number"
-                      name="quantity"
-                      id="Quantity-{{ section.id }}"
-                      data-cart-quantity="{{ cart_qty }}"
-                      data-min="{{ product.selected_or_first_available_variant.quantity_rule.min }}"
-                      min="{{ product.selected_or_first_available_variant.quantity_rule.min }}"
-                      {% if product.selected_or_first_available_variant.quantity_rule.max != null %}
-                        data-max="{{ product.selected_or_first_available_variant.quantity_rule.max }}"
-                        max="{{ product.selected_or_first_available_variant.quantity_rule.max }}"
-                      {% endif %}
-                      step="{{ product.selected_or_first_available_variant.quantity_rule.increment }}"
-                      value="{{ product.selected_or_first_available_variant.quantity_rule.min }}"
-                      form="{{ product_form_id }}"
-                      aria-label="quantity">
-                    <button class="w-8 h-8 border border-[#f2f2f6] bg-[#f2f2f6] rounded-r-3xl relative text-secondary transition-all before:content-empty before:w-full before:h-full before:z-[1] before:absolute before:left-0 before:top-0" name="plus" type="button" role="button" aria-label="plus">
-                      {% render 'icon-plus', class: 'w-4 h-4 mx-auto' %}
-                    </button>
-                  </quantity-input>
-                </div>
-                <div class="product-form__error-message-wrapper flex gap-1 items-center text-base text-error px-3 py-1.5 fixed top-3 right-3 bg-background shadow-megamenu rounded transition-all" role="alert" hidden>
-                  <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-error w-4 h-4"  viewBox="0 0 13 13">
-                    <circle cx="6.5" cy="6.50049" r="5.5" stroke="white" stroke-width="2"/>
-                    <circle cx="6.5" cy="6.5" r="5.5" fill="#EB001B" stroke="#EB001B" stroke-width="0.7" />
-                    <path d="M5.87413 3.52832L5.97439 7.57216H7.02713L7.12739 3.52832H5.87413ZM6.50076 9.66091C6.88091 9.66091 7.18169 9.37267 7.18169 9.00504C7.18169 8.63742 6.88091 8.34917 6.50076 8.34917C6.12061 8.34917 5.81982 8.63742 5.81982 9.00504C5.81982 9.37267 6.12061 9.66091 6.50076 9.66091Z" fill="white" />
-                    <path d="M5.87413 3.17832H5.51535L5.52424 3.537L5.6245 7.58083L5.63296 7.92216H5.97439H7.02713H7.36856L7.37702 7.58083L7.47728 3.537L7.48617 3.17832H7.12739H5.87413ZM6.50076 10.0109C7.06121 10.0109 7.5317 9.57872 7.5317 9.00504C7.5317 8.43137 7.06121 7.99918 6.50076 7.99918C5.94031 7.99918 5.46982 8.43137 5.46982 9.00504C5.46982 9.57872 5.94031 10.0109 6.50076 10.0109Z" fill="white" stroke="#EB001B" stroke-width="0.7">
-                  </svg>
-                  <span class="product-form__error-message"></span>
-                </div>
 
-                <add-to-cart class="block relative min-h-[54px]">
-                  <div class="product-form__buttons flex flex-wrap gap-2">
-                    <button type="submit" name="add" class="product-form__submit button button--full-width btn-secondary" {% if product.selected_or_first_available_variant.available == false %} disabled{% endif %}>
+
+                <div class="product-form__buttons flex flex-wrap gap-4 mb-4 mt-6">
+                  <div class="flex items-start gap-4 w-full">
+                    <quantity-input class="flex items-center relative w-fit h-12.5 border border-primary rounded-3xl">
+                      <button class="w-10 h-12.5 border-r border-border rounded-l-3xl relative text-primary transition-all before:content-empty before:w-full before:h-full before:z-[1] before:absolute before:left-0 before:top-0" name="minus" type="button" role="button" aria-label="minus">
+                        {% render 'icon-minus', class: 'w-4 h-4 mx-auto' %}
+                      </button>
+                      <input class="appearance-none border-none text-primary text-xl leading-2 p-0.5 w-14 h-full font-medium text-center !ring-0 shadow-none focus:border-none" 
+                        type="number"
+                        name="quantity"
+                        id="Quantity-{{ section.id }}"
+                        data-cart-quantity="{{ cart_qty }}"
+                        data-min="{{ product.selected_or_first_available_variant.quantity_rule.min }}"
+                        min="{{ product.selected_or_first_available_variant.quantity_rule.min }}"
+                        {% if product.selected_or_first_available_variant.quantity_rule.max != null %}
+                          data-max="{{ product.selected_or_first_available_variant.quantity_rule.max }}"
+                          max="{{ product.selected_or_first_available_variant.quantity_rule.max }}"
+                        {% endif %}
+                        step="{{ product.selected_or_first_available_variant.quantity_rule.increment }}"
+                        value="{{ product.selected_or_first_available_variant.quantity_rule.min }}"
+                        form="{{ product_form_id }}"
+                        aria-label="quantity">
+                      <button class="w-10 h-12.5 border-l border-border rounded-r-3xl relative text-primary transition-all before:content-empty before:w-full before:h-full before:z-[1] before:absolute before:left-0 before:top-0" name="plus" type="button" role="button" aria-label="plus">
+                        {% render 'icon-plus', class: 'w-4 h-4 mx-auto' %}
+                      </button>
+                    </quantity-input>
+                    <button type="submit" name="add" class="product-form__submit button button--full-width btn-secondary !border-[#3967AB] !bg-[#3967AB] !text-white hover:opacity-80 w-full" {% if product.selected_or_first_available_variant.available == false %} disabled{% endif %}>
                       <span>
                         {%- if product.selected_or_first_available_variant.available -%}
                           {{ 'products.product.add_to_cart' | t }}
@@ -700,20 +686,56 @@
                     </button>
                     <div class="button-unavailable"></div>
                   </div>
-                </add-to-cart>
-                <div class="h-4 mb-8 lg:mb-6 relative mt-4">
-                  <div 
-                    class="absolute top-0 left-0 block w-full h-full" 
-                    data-pp-style-text-align="left"
-                    data-pp-message 
-                    data-pp-style-text-size="16"
-                    data-pp-pageType="product-details">
-                  </div>
-                </div>   
+                </div>
+                <div class="product-form__error-message-wrapper flex gap-1 items-center text-base text-error px-3 py-1.5 fixed top-3 right-3 bg-background shadow-megamenu rounded transition-all" role="alert" hidden>
+                  <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-error w-4 h-4"  viewBox="0 0 13 13">
+                    <circle cx="6.5" cy="6.50049" r="5.5" stroke="white" stroke-width="2"/>
+                    <circle cx="6.5" cy="6.5" r="5.5" fill="#EB001B" stroke="#EB001B" stroke-width="0.7" />
+                    <path d="M5.87413 3.52832L5.97439 7.57216H7.02713L7.12739 3.52832H5.87413ZM6.50076 9.66091C6.88091 9.66091 7.18169 9.37267 7.18169 9.00504C7.18169 8.63742 6.88091 8.34917 6.50076 8.34917C6.12061 8.34917 5.81982 8.63742 5.81982 9.00504C5.81982 9.37267 6.12061 9.66091 6.50076 9.66091Z" fill="white" />
+                    <path d="M5.87413 3.17832H5.51535L5.52424 3.537L5.6245 7.58083L5.63296 7.92216H5.97439H7.02713H7.36856L7.37702 7.58083L7.47728 3.537L7.48617 3.17832H7.12739H5.87413ZM6.50076 10.0109C7.06121 10.0109 7.5317 9.57872 7.5317 9.00504C7.5317 8.43137 7.06121 7.99918 6.50076 7.99918C5.94031 7.99918 5.46982 8.43137 5.46982 9.00504C5.46982 9.57872 5.94031 10.0109 6.50076 10.0109Z" fill="white" stroke="#EB001B" stroke-width="0.7">
+                  </svg>
+                  <span class="product-form__error-message"></span>
+                </div>
               {%- endform -%}
             </product-form>
 
             {% render 'cart-notification' %}
+          {%- when 'payment-method' -%}
+            <div class="flex flex-wrap justify-center gap-2">
+              {%- assign enabled_payment_types = "apple_pay,shopify_pay,visa,master,paypal,american_express" | remove: ' ' | split: ',' -%}
+              {% for type in enabled_payment_types %}
+                {% if type == 'american_express' %}
+                  {% render 'icon-amex-border', class: 'w-auto h-8' %}
+                {% elsif type == 'apple_pay' %}
+                  {% render 'icon-applepay', class: 'w-auto h-8' %}
+                {% else %}
+                  {%- assign first_svg = type | payment_type_svg_tag: class: 'w-auto h-8' | split: '<title' | first -%}
+                  {%- assign last_svg = type | payment_type_svg_tag: class: 'w-auto h-8' | split: '</title>' | last -%}
+                  {{- first_svg -}}{{- last_svg -}}
+                {% endif %}
+              {%- endfor -%}
+            </div>
+          {%- when 'product-demand' -%}
+            {% liquid
+              assign hourNow = 'now' | date: '%H'
+              assign dateNow = 'now' | date: '%d'
+              assign monthNow = 'now' | date: '%m'
+            
+              assign productSold = product.id | divided_by: 90 | round | slice: -2, 2 | plus: hourNow | plus: dateNow | plus: monthNow
+            %}
+            {% if productSold > 0 %}
+              <div class="flex items-center gap-1 text-base text-primary mb-4 lg:mb-5">
+                {% render 'icon-binocular', class: 'w-6 h-6' %} <span>There are <span class="font-bold">{{ productSold }}</span> people viewing this product right now.</span>
+              </div>
+            {% endif %}
+          {%- when 'image' -%}
+            <img 
+              src="{{ block.settings.image | image_url: width: block.settings.image.width }}" 
+              loading="lazy"
+              width="{{ block.settings.image.width }}"
+              height="{{ block.settings.image.height }}"
+              class="w-full mb-2 block"
+            />
           {%- when 'collapsible_tab' -%}
             {% if block.settings.title != blank %}
               <accordion-toggle class="block w-full relative bg-background py-3">
@@ -1139,6 +1161,30 @@
             "label": "Description"
           }
         ]
+      },
+      {
+        "type": "image",
+        "name": "Image",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
+          }
+        ]
+      },
+      
+      {
+        "type": "product-demand",
+        "name": "Product demand",
+        "limit": 1,
+        "settings": []
+      },
+      {
+        "type": "payment-method",
+        "name": "Payment method",
+        "limit": 1,
+        "settings": []
       },
       {
         "type": "text-image",

@@ -1,9 +1,12 @@
 {% assign media = product.featured_media %}
+{% unless heading %}
+  {% assign heading = 'div' %}
+{% endunless %}
 
 {%- if product and product != empty -%}
   <div class="relative card-wrapper product-card-wrapper" data-handle="{{ product.handle }}">
     {%- if media -%}
-      <div class="relative block group overflow-hidden rounded-md" title="{{ product.title }}">
+      <div class="relative block group overflow-hidden rounded-md" title="{{ product.title }}" style="padding-bottom: {{ 1 | divided_by: media.aspect_ratio | times: 100 }}%;">
         <img
           srcset="
           {%- if media.width >= 165 -%}
@@ -19,9 +22,9 @@
           {%- if media.width >= 1066 -%}
             {{ media | image_url: width: 1066 }} 1066w,{%- endif -%}"
           src="{{ media | image_url: width: 1024 }}"
-          sizes="(min-width: {{ 1440 }}px) {{ 1440 | minus: 130 | divided_by: 4 }}px, (min-width: 990px) calc((100vw - 130px) / 4), (min-width: 750px) calc((100vw - 120px) / 3), calc((100vw - 35px) / 2)"
+          sizes="(min-width: {{ 1440 }}px) {{ 1440 | minus: 130 | divided_by: 3 }}px, (min-width: 990px) calc((100vw - 130px) / 3), (min-width: 750px) calc((100vw - 120px) / 2), calc((100vw - 35px) / 1)"
           alt="{{ media | split: "/" | last | replace: "-", " " | split: "." | first }}"
-          class="aspect-1 block group-hover:scale-105 transition-all duration-300"
+          class="absolute w-full h-full top-0 left-0 block object-cover group-hover:scale-105 transition-all duration-300"
           loading="{{ lazy_load }}"
           width="1024"
           height="{{ 1024 | divided_by: media.aspect_ratio }}">
@@ -29,11 +32,11 @@
     {%- endif -%}
     <div class="mt-6">
       <{{ heading }} class="text-primary font-body font-normal text-sm lg:text-base tracking-tight line-clamp-2 overflow-hidden break-words mb-3">
-        <span class="!block absolute top-0 left-0 w-full h-full"></span>
         {{ product.title | escape }}
       </{{ heading }}>
       
-      <a href="{{ product.url | split: '?' | first }}" class="px-6 py-1 btn-secondary">
+      <a href="{{ product.url | split: '?' | first }}" class="px-6 py-1 btn-secondary max-w-full w-fit !h-[34px]">
+        <span class="!block absolute top-0 left-0 w-full h-full"></span>
         Shop - {{ product.selected_or_first_available_variant.price | money }}
       </a>
     </div>

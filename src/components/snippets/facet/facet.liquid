@@ -9,19 +9,19 @@
   endif
 -%}
 
-<div class="facet w-full h-full max-w-facet lg:max-w-facetdt fixed top-0 left-0 -translate-x-full md:-translate-x-facet-tl z-30 transition-all duration-500">
+<div class="facet w-full h-full max-w-facet lg:max-w-[calc(25%_-_16px)] fixed top-0 left-0 lg:sticky lg:translate-x-0 -translate-x-full md:-translate-x-facet-tl z-30 lg:z-0 transition-all duration-500">
   <facet-filters-form class="block h-screen bg-background lg:max-w-full">
     <form id="FacetFiltersForm" class="bg-background h-full">
       {%- if results.terms -%}
         <input type="hidden" name="q" value="{{ results.terms | escape }}">
         <input name="options[prefix]" type="hidden" value="last">
       {%- endif -%}
-      <div id="FacetsWrapperDesktop" class="py-5 h-full">
-        <div class="flex items-center justify-between gap-2 px-5">
+      <div id="FacetsWrapperDesktop" class="py-5 lg:py-0 h-full">
+        <div class="flex items-center justify-between gap-2 px-5 lg:px-0">
           <div class="font-bold text-lg leading-none">
             {{- "products.facets.filter" | t -}}
           </div>
-          <toggle-filter class="block">
+          <toggle-filter class="block lg:hidden">
             <button
               type="button"
               class="flex items-center gap-1.5 text-primary capitalize font-heading font-normal"
@@ -31,7 +31,7 @@
           </toggle-filter>
         </div>
         <div
-          class="flex flex-wrap gap-2 px-5 items-center only:hidden empty:!hidden js-filter mb-4"
+          class="flex flex-wrap gap-2 px-5 lg:px-0 items-center only:hidden empty:!hidden js-filter mb-4"
           data-index="remove-facet"
         >
           {%- for filter in results.filters -%}
@@ -49,31 +49,28 @@
                 </a>
               </facet-remove>
             {%- endfor -%}
-
-            {% comment %}
-              {%- if filter.type == "price_range" -%}
-                {%- if filter.min_value.value != null or filter.max_value.value != null -%}
-                  <facet-remove class="block">
-                    <a href="{{ filter.url_to_remove }}" class="block text-primary hover:text-primary bg-background border border-solid border-border overflow-hidden rounded-3xl no-underline" rel="nofollow">
-                      <span class="flex items-center gap-1 px-2.5 pl-3 py-1.5 text-sm leading-2 font-heading font-normal">
-                        {% if filter.min_value.value %}
-                          {{ filter.min_value.value | money }}
-                        {% else %}
-                          {{ 0 | money }}
-                        {% endif %}
-                        -
-                        {% if filter.max_value.value %}
-                          {{ filter.max_value.value | money }}
-                        {% else %}
-                          {{ filter.range_max | money }}
-                        {% endif %}
-                        {% render "icon-close", class: "w-4 h-4" %}
-                      </span>
-                    </a>
-                  </facet-remove>
-                {%- endif -%}
+            {%- if filter.type == "price_range" -%}
+              {%- if filter.min_value.value != null or filter.max_value.value != null -%}
+                <facet-remove class="block">
+                  <a href="{{ filter.url_to_remove }}" class="block text-primary hover:text-primary bg-background border border-solid border-border overflow-hidden rounded-3xl no-underline" rel="nofollow">
+                    <span class="flex items-center gap-1 px-2.5 pl-3 py-1.5 text-sm leading-2 font-heading font-normal">
+                      {% if filter.min_value.value %}
+                        {{ filter.min_value.value | money }}
+                      {% else %}
+                        {{ 0 | money }}
+                      {% endif %}
+                      -
+                      {% if filter.max_value.value %}
+                        {{ filter.max_value.value | money }}
+                      {% else %}
+                        {{ filter.range_max | money }}
+                      {% endif %}
+                      {% render "icon-close", class: "w-4 h-4" %}
+                    </span>
+                  </a>
+                </facet-remove>
               {%- endif -%}
-            {% endcomment %}
+            {%- endif -%}
           {%- endfor -%}
           {%- for filter in results.filters -%}
             {%- if filter.active_values.size > 0 -%}
@@ -88,7 +85,63 @@
             {%- endif -%}
           {%- endfor -%}
         </div>
-        <div class="overflow-y-auto scroll-thin scroll-brighter max-h-[calc(100vh_-_132px)] pb-safe-offset-31 lg:pb-0">
+        <div class="overflow-y-auto scroll-thin scroll-brighter max-h-[calc(100vh_-_80px)] lg:max-h-full pb-safe-offset-31 lg:pb-0 mt-4">
+          <accordion-toggle class="px-5 lg:px-0 block border-b border-border border-t last:border-b-0 active">
+            <div class="summary flex items-center justify-between gap-2 w-full cursor-pointer pt-4">
+              <span class="text-base font-semibold font-heading capitalize text-primary leading-4">
+                Sort By
+              </span>
+            </div>
+            <div class="details mb-4">
+              <ul class="block" role="list" style="max-height: 100%;">
+                {%- for option in results.sort_options -%}
+                  <li class="flex items-center mb-2 last:mb-0 js-filter active" data-value="{{ option.value | escape }}">
+                    <label for="sort-by-filter" class="relative w-full flex items-center gap-2 cursor-pointer">
+                      <input
+                        type="radio"
+                        name="sort_by"
+                        value="{{ option.value }}"
+                        class="opacity-0 invisible absolute top-0 left-0"
+                        {% if option.value == sort_by %}
+                        checked
+                        {% endif -%}
+                        id="sort-by-filter">
+                      <svg
+                        aria-hidden="true"
+                        class="icon icon-checkmark absolute w-2.5 h-2.5 top-1/2 left-2.5 -translate-x-1/2 -translate-y-1/2 opacity-0 invisible"
+                        width="0.625rem"
+                        height="0.625rem"
+                        viewBox="0 0 11 7"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                          d="M1.5 3.5L2.83333 4.75L4.16667 6L9.5 1"
+                          stroke="currentColor"
+                          stroke-width="1.75"
+                          stroke-linecap="round"
+                          stroke-linejoin="round" />
+                      </svg>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="18"
+                        height="18"
+                        class="icon-box w-5 h-5 flex-none"
+                        viewBox="0 0 18 18"
+                        fill="none">
+                        <path
+                          d="M16.625 2.75C16.625 1.99061 16.0094 1.375 15.25 1.375H2.75C1.99061 1.375 1.375 1.99061 1.375 2.75V15.25C1.375 16.0094 1.99061 16.625 2.75 16.625H15.25C16.0094 16.625 16.625 16.0094 16.625 15.25V2.75Z"
+                          stroke="currentColor"
+                          stroke-linejoin="round" />
+                      </svg>
+                      <div class="text-sm leading-4 dark-link transition-all w-full flex items-center justify-between gap-1 font-normal">
+                        {{ option.name }}
+                      </div>
+                    </label>
+                  </li>
+                {%- endfor -%}
+              </ul>
+            </div>
+          </accordion-toggle>
           {%- for filter in results.filters -%}
             {%- assign total_active_values = total_active_values
               | plus: filter.active_values.size
@@ -97,17 +150,15 @@
               {% when "boolean", "list" %}
                 <accordion-toggle
                   id="Details-{{ forloop.index }}-{{ section.id }}"
-                  class="px-0 block border-b border-border {% if forloop.first %}border-t{% endif %} last:border-none active px-5"
+                  class="px-5 lg:px-0 block border-b border-border {% if forloop.first %}border-t{% endif %} last:border-none active"
                 >
                   <div
                     class="summary flex items-center justify-between gap-2 w-full cursor-pointer pt-4"
                     aria-label="{{ filter.label }} ({{ "products.facets.filters_selected.one" | t: count: filter.active_values.size }})"
                   >
-                    <span class="text-base font-bold font-heading capitalize text-primary leading-4">
+                    <span class="text-base font-semibold font-heading capitalize text-primary leading-4">
                       {{- filter.label | escape -}}
                     </span>
-                    {% render "icon-minus", class: "w-5 h-5 icon-minus" %}
-                    {% render "icon-plus", class: "w-5 h-5 icon-add" %}
                   </div>
                   <div
                     id="Facet-{{ forloop.index }}-{{ section.id }}"
@@ -187,11 +238,9 @@
                   class="block border-b border-border last:border-none active px-5"
                 >
                   <div class="summary flex items-center justify-between gap-2 w-full cursor-pointer pt-4">
-                    <span class="text-base font-bold font-heading capitalize text-primary leading-4">
+                    <span class="text-base font-semibold font-heading capitalize text-primary leading-4">
                       {{- filter.label | escape -}} ({{ cart.currency.iso_code }})
                     </span>
-                    {% render "icon-minus", class: "w-5 h-5 icon-minus" %}
-                    {% render "icon-plus", class: "w-5 h-5 icon-add" %}
                   </div>
                   <div
                     id="Facet-{{ forloop.index }}-{{ section.id }}"
@@ -212,14 +261,6 @@
         </div>
       </div>
 
-      <div class="sticky bottom-0 left-0 grid grid-cols-2 gap-3 px-5 py-3 shadow-[0_3px_10px_#0d0c222b] z-[1] bg-background">
-        <toggle-filter class="btn-secondary !text-base !py-3 !px-4 !rounded-[500px] !capitalize">
-          Cancel
-        </toggle-filter>
-        <button class="btn-primary submit-button !text-base !py-3 !px-4 !rounded-[500px] !capitalize">
-          Apply
-        </button>
-      </div>
       {% if results.current_vendor or results.current_type %}
         <input
           type="hidden"
@@ -231,7 +272,7 @@
   </facet-filters-form>
 </div>
 
-<toggle-filter class="toggle-mobile block fixed top-0 left-0 w-full h-full z-20 opacity-0 invisible transition-opacity">
+<toggle-filter class="toggle-mobile block lg:hidden fixed top-0 left-0 w-full h-full z-20 opacity-0 invisible transition-opacity">
   <button class="before:content-empty before:bg-overlay before:top-0 before:left-0 before:fixed before:w-full before:h-full before:backdrop-blur-sm before:-z-10">
     <span class="hidden">
       {% render "icon-close", class: "text-primary w-3.5 h-3.5" %}
