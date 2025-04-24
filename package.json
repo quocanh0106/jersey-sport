@@ -6,9 +6,7 @@
   "scripts": {
     "build": "webpack",
     "webpack": "yarn install && webpack --watch --progress",
-    "devcty": "cd dist && shopify theme dev --store t9jr2t-zr.myshopify.com",
-    "devhome": "cd dist && shopify theme serve",
-    "loginhome": "shopify login --store t9jr2t-zr.myshopify.com",
+    "dev": "cd dist && shopify theme dev --store t9jr2t-zr.myshopify.com",
     "deploydev": "cd dist && shopify theme push --ignore config/settings_data.json templates/*.json templates/metaobject/*.json templates/customers/*.json",
     "deploy": "cd dist && shopify theme push ",
     "fetch": "cd src && cd components && shopify theme pull --only templates/*.json",
